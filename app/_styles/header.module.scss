@@ -1,0 +1,19 @@
+@use './colors' as col;
+
+// Nav Stuff
+.nav {
+  display: flex;
+  color: col.$dark;
+  ul {
+    display: flex;
+    margin-block: auto;
+    align-items: center;
+    align-content: center;
+    gap: 24px;
+    padding-inline: 1rem;
+  }
+  .active {
+    color: col.$highlight;
+    font-weight: 700;
+  }
+}
