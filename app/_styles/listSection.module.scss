@@ -1,0 +1,58 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+.container {
+  .imgContainer {
+    &:after {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        100% 127.72% at 100% 47.44%,
+        rgba(106, 40, 115, 0) 35.62%,
+        rgba(106, 40, 115, 0.309697) 50.69%,
+        rgba(106, 40, 115, 0.592068) 60.52%,
+        rgba(106, 40, 115, 0.825311) 70.36%,
+        #6a2873 100%
+      );
+      content: '';
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      //   visibility: hidden;
+    }
+  }
+}
+.txt {
+  padding: clamp(calc(20rem / 16), 10vw, calc(80rem / 16));
+  .title {
+    color: col.$light;
+    @include ty.title;
+    max-width: 18ch;
+  }
+  .list {
+    margin-block: 2rem;
+    display: grid;
+    gap: 1rem;
+    max-width: 70ch;
+    color: col.$light;
+    li {
+      display: flex;
+      gap: 0.5rem;
+      svg {
+        color: col.$highlight;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+.btn {
+  color: col.$light;
+  background-color: col.$highlight;
+  padding-inline: 2rem;
+  padding-block: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

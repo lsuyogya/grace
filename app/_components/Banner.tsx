@@ -1,19 +1,26 @@
 import Image from 'next/image';
-import '@/app/_styles/banner.module.scss';
+import style from '@/app/_styles/banner.module.scss';
+import GetSupport from './icons/GetSupport';
 
 const Banner = ({
   imgUrl,
   imgAlt,
   overlayTitle,
   overlayTxt,
+  overlayMaxWidth = '55ch',
+  btnTxt = 'Enquire Now',
+  getSupport = false,
 }: {
   imgUrl: string;
   imgAlt: string;
   overlayTitle: string;
   overlayTxt?: string;
+  overlayMaxWidth?: string;
+  btnTxt?: string;
+  getSupport?: boolean;
 }) => {
   return (
-    <div className="banner">
+    <div className={style.banner}>
       <Image
         src={imgUrl}
         alt={imgAlt}
@@ -21,10 +28,23 @@ const Banner = ({
         width={'1000'}
         className="w-screen h-auto"
       />
-      <div className="overlay">
-        <h1 className="overlayTitle">{overlayTitle}</h1>
-        {!overlayTxt ? <></> : <p className="overlayTxt">{overlayTxt}</p>}
+      <div
+        className={style.overlay}
+        style={{ maxWidth: overlayMaxWidth }}>
+        <h1 className={style.overlayTitle}>{overlayTitle}</h1>
+        {!overlayTxt ? <></> : <p className={style.overlayTxt}>{overlayTxt}</p>}
       </div>
+      {/* TODO: Open modal when btn clicked  */}
+      <button className={`${style.enquireBtn} font-bold uppercase`}>
+        {btnTxt}
+      </button>
+      {!getSupport ? (
+        <></>
+      ) : (
+        <div className={style.getSupport}>
+          <GetSupport />
+        </div>
+      )}
     </div>
   );
 };

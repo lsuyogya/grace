@@ -1,0 +1,35 @@
+@use '../_styles/colors' as col;
+@use '../_styles/typography' as ty;
+
+.imgTxt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  > img {
+    width: 100%;
+    height: auto;
+  }
+  p {
+    margin-block: 1rem;
+  }
+  margin-block: 4rem;
+}
+.txt {
+  padding-inline: 1rem;
+}
+.title {
+  @include ty.title;
+  color: col.$primary;
+}
+.readMore {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: col.$highlight;
+}
+.ndisLogo {
+  position: absolute;
+  inset-block-end: 1rem;
+  inset-inline-end: 2rem;
+}

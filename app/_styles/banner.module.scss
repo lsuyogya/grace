@@ -1,1 +1,59 @@
 @use './colors' as col;
+@use './typography' as ty;
+
+.banner {
+  position: relative;
+}
+.overlay {
+  $border-rad: 1rem;
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: calc(24rem / 16);
+  background-color: mix(col.$primary, transparent, 68%);
+  border-top-right-radius: $border-rad;
+  border-bottom-right-radius: $border-rad;
+  padding-inline: calc(40rem / 16);
+  padding-block: calc(30rem / 16);
+  display: grid;
+  gap: calc(8rem / 16);
+}
+
+.overlayTitle {
+  font-weight: 700;
+  //   line-height: 50px;
+  color: col.$light;
+  @include ty.bannerTitle;
+}
+
+.overlayTxt {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+  text-align: left;
+  color: col.$light;
+}
+
+.enquireBtn {
+  $border-rad: calc(8rem / 16);
+  position: absolute;
+  background-color: col.$highlight;
+  inset-inline-end: 0rem;
+  inset-block: 0;
+  margin-block: auto;
+  rotate: calc(90deg + 180deg);
+  transform: translateY(133%); //magic number
+  height: min-content;
+  width: fit-content;
+  padding-inline: 1rem;
+  padding-block: calc(8rem / 16);
+  border-top-right-radius: $border-rad;
+  border-top-left-radius: $border-rad;
+  color: col.$light;
+}
+
+.getSupport {
+  position: absolute;
+  bottom: 0;
+  right: 3rem;
+  transform: translateY(50%);
+}
