@@ -23,29 +23,33 @@ const ImgTxt = ({
   ndisIconAlt?: string;
 }) => {
   return (
-    <div className={style.imgTxt}>
-      <Image
-        src={imgSrc}
-        height={1000}
-        width={1000}
-        alt={imgAlt ?? ''}
-      />
-      <div className={style.txt}>
-        <h1 className={style.title}>{title}</h1>
-        <p>{desc1stPara}</p>
-        {!desc2ndPara ? <></> : <p>{desc2ndPara}</p>}
-        <Link
-          href={readmoreLink}
-          className={`${style.readMore} uppercase font-semibold`}>
-          Read More <ArrowRight />{' '}
-        </Link>
-        <Image
-          src={ndisIconSrc}
-          alt={ndisIconAlt ?? ''}
-          height={250}
-          width={250}
-          className={style.ndisLogo}
-        />
+    <div className="mainGrid">
+      <div className="content">
+        <div className={`${style.imgTxt}`}>
+          <Image
+            src={imgSrc}
+            height={1000}
+            width={1000}
+            alt={imgAlt ?? ''}
+          />
+          <div className={style.txt}>
+            <h1 className={style.title}>{title}</h1>
+            <p>{desc1stPara}</p>
+            {!desc2ndPara ? <></> : <p>{desc2ndPara}</p>}
+            <Link
+              href={readmoreLink}
+              className={`${style.readMore} uppercase font-semibold`}>
+              Read More <ArrowRight />{' '}
+            </Link>
+            <Image
+              src={ndisIconSrc}
+              alt={ndisIconAlt ?? ''}
+              height={250}
+              width={250}
+              className={style.ndisLogo}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

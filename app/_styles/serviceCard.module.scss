@@ -1,0 +1,84 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+.serviceCard {
+  $border-radius: calc(12rem / 16);
+  $txtPadding: 2rem;
+  position: relative;
+  //   min-height: calc(435rem / 16);
+  border-radius: $border-radius;
+  aspect-ratio: 1;
+  .imgContainer {
+    position: absolute;
+    inset: 0;
+    &::after {
+      transition: opacity 300ms ease-in-out;
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: $border-radius;
+      opacity: 0;
+    }
+  }
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -10;
+    border-radius: $border-radius;
+    filter: brightness(0.8);
+  }
+  .txtWrapper {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    gap: 1rem;
+    align-content: center;
+    padding: $txtPadding;
+    color: col.$light;
+    transition: inset 300ms ease-in;
+    h2 {
+      @include ty.titleH2;
+      text-transform: uppercase;
+    }
+    .additionalDetails {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 300ms ease-out;
+      > div {
+        overflow: hidden;
+      }
+    }
+  }
+  &:hover {
+    .imgContainer:after {
+      background: linear-gradient(
+        180deg,
+        rgba(118, 112, 119, 0) 0%,
+        rgba(106, 40, 115, 0.8) 62.66%
+      );
+      opacity: 1;
+    }
+    .txtWrapper {
+      //   align-content: end;
+      inset-block-start: unset;
+      inset-block-end: 0;
+      .additionalDetails {
+        grid-template-rows: 1fr;
+        > div > * {
+          margin-block: 1rem;
+        }
+      }
+    }
+  }
+  button {
+    color: #fff;
+    background-color: #8cc539;
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

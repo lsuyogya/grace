@@ -24,8 +24,8 @@ const Banner = ({
       <Image
         src={imgUrl}
         alt={imgAlt}
-        height={'1000'}
-        width={'1000'}
+        height={'2000'}
+        width={'2000'}
         className="w-screen h-auto"
       />
       <div

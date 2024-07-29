@@ -1,10 +1,16 @@
 @use '../_styles/colors' as col;
 @use '../_styles/typography' as ty;
 
+$breakpoint: 1000rem / 16;
 .imgTxt {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
+  row-gap: 2rem;
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+  }
+
   > img {
     width: 100%;
     height: auto;
@@ -15,7 +21,9 @@
   margin-block: 4rem;
 }
 .txt {
-  padding-inline: 1rem;
+  @media (min-width: $breakpoint) {
+    padding-inline: 1rem;
+  }
 }
 .title {
   @include ty.title;
@@ -32,4 +40,9 @@
   position: absolute;
   inset-block-end: 1rem;
   inset-inline-end: 2rem;
+  @media (max-width: calc(1400rem /16)) {
+    position: relative;
+    inset-inline-end: 0;
+    float: right;
+  }
 }

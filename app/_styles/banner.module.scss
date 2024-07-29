@@ -1,6 +1,8 @@
 @use './colors' as col;
 @use './typography' as ty;
 
+$breakpoint: 800rem /16;
+
 .banner {
   position: relative;
 }
@@ -16,6 +18,13 @@
   padding-block: calc(30rem / 16);
   display: grid;
   gap: calc(8rem / 16);
+  @media (max-width: $breakpoint) {
+    position: relative;
+    max-width: unset !important;
+    inset-block-end: unset;
+    background-color: col.$primary;
+    border-radius: 0;
+  }
 }
 
 .overlayTitle {
@@ -56,4 +65,12 @@
   bottom: 0;
   right: 3rem;
   transform: translateY(50%);
+  @media (max-width: calc(1400rem /16)) {
+    scale: 0.75;
+  }
+  @media (max-width: $breakpoint) {
+    scale: 0.45;
+    bottom: -2rem;
+    right: -2rem;
+  }
 }

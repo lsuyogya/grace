@@ -1,6 +1,7 @@
 import Banner from './_components/Banner';
 import ImgTxt from './_components/ImgTxt';
 import ListSection from './_components/ListSection';
+import OurServices from './_components/OurServices';
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
           'The team upholds the highest standards of integrity and professionalism.',
         ]}
       />
+      <OurServices></OurServices>
     </>
   );
 }

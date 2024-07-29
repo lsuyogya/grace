@@ -20,12 +20,16 @@ const ListSection = ({
 }) => {
   return (
     <div className={style.container}>
-      <div className={`absolute -z-10 w-screen h-auto ${style.imgContainer}`}>
+      <div
+        className={`absolute -z-10 w-screen h-auto ${style.imgContainer}`}
+        // style={{ background: `url(${imgSrc})` }}
+      >
         <Image
           src={imgSrc}
           alt={imgAlt ?? ''}
-          width={1000}
-          height={1000}
+          width={2000}
+          height={2000}
+          className=""
         />
       </div>
       <div className={style.txt}>
