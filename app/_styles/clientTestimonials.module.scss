@@ -1,0 +1,49 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+.container {
+  h1 {
+    @include ty.titleH1;
+  }
+  background-color: col.$lightPink;
+  margin-block: 4rem;
+  padding-block: clamp(calc(20rem / 16), 10vw, calc(80rem / 16));
+}
+
+.testimonialGrid {
+  $testimonialMinWidth: 400rem / 16;
+  $globalPadingInline: 2rem;
+  display: grid;
+  gap: calc(24rem / 16);
+  grid-template-columns: repeat(auto-fit, minmax($testimonialMinWidth, 1fr));
+  @media (max-width: #{$testimonialMinWidth + $globalPadingInline}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonialCard {
+  border: 1px solid col.$dark;
+  border-radius: 1em;
+  padding: calc(24rem / 16);
+  > * {
+    margin-block: 1rem;
+    &:first-child {
+      margin-block-start: 0;
+    }
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+}
+.rating {
+  color: #ffb322;
+  display: flex;
+  svg {
+    max-width: 30px;
+    height: auto;
+  }
+}
+
+.top {
+  margin-block-end: calc(24rem / 16);
+}

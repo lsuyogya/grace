@@ -34,7 +34,7 @@
   padding: clamp(calc(20rem / 16), 10vw, calc(80rem / 16));
   .title {
     color: col.$light;
-    @include ty.title;
+    @include ty.titleH1;
     max-width: 18ch;
   }
   .list {
@@ -52,13 +52,4 @@
       }
     }
   }
-}
-.btn {
-  color: col.$light;
-  background-color: col.$highlight;
-  padding-inline: 2rem;
-  padding-block: 0.75rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
 }

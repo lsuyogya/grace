@@ -32,3 +32,12 @@ $padding-inline: 2rem;
 .content {
   grid-column: content;
 }
+.btnPrimary {
+  color: col.$light;
+  background-color: col.$highlight;
+  padding-inline: 2rem;
+  padding-block: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

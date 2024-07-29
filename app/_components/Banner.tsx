@@ -20,7 +20,7 @@ const Banner = ({
   getSupport?: boolean;
 }) => {
   return (
-    <div className={style.banner}>
+    <section className={style.banner}>
       <Image
         src={imgUrl}
         alt={imgAlt}
@@ -45,7 +45,7 @@ const Banner = ({
           <GetSupport />
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

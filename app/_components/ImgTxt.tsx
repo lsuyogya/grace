@@ -23,7 +23,7 @@ const ImgTxt = ({
   ndisIconAlt?: string;
 }) => {
   return (
-    <div className="mainGrid">
+    <section className="mainGrid">
       <div className="content">
         <div className={`${style.imgTxt}`}>
           <Image
@@ -51,7 +51,7 @@ const ImgTxt = ({
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

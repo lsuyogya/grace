@@ -70,7 +70,7 @@ const sampleJson = [
 
 const OurServices = () => {
   return (
-    <div className="mainGrid">
+    <section className="mainGrid">
       <div className="content">
         <div className={style.container}>
           <h1>Our Services</h1>
@@ -88,7 +88,7 @@ const OurServices = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

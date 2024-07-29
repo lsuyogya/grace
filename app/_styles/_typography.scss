@@ -2,7 +2,7 @@
   font-size: clamp(calc(24rem / 16), 7vw, calc(48rem / 16));
   line-height: clamp(calc(28rem / 16), 7vw, calc(50rem / 16));
 }
-@mixin title {
+@mixin titleH1 {
   font-size: clamp(calc(20rem / 16), 7vw, calc(40rem / 16));
   line-height: clamp(calc(24rem / 16), 7vw, calc(48rem / 16));
   font-weight: 700;

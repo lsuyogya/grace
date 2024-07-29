@@ -5,7 +5,7 @@
   margin-block: 4rem;
   h1 {
     color: col.$primary;
-    @include ty.title;
+    @include ty.titleH1;
     margin-block-end: 2rem;
   }
 }

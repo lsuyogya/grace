@@ -19,7 +19,7 @@ const ListSection = ({
   listArray: Array<string>;
 }) => {
   return (
-    <div className={style.container}>
+    <section className={style.container}>
       <div
         className={`absolute -z-10 w-screen h-auto ${style.imgContainer}`}
         // style={{ background: `url(${imgSrc})` }}
@@ -43,10 +43,10 @@ const ListSection = ({
           ))}
         </ul>
         <Link href={btnLink}>
-          <button className={style.btn}>{btnLabel}</button>
+          <button className="btnPrimary">{btnLabel}</button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 
