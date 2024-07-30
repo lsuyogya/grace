@@ -32,7 +32,6 @@ $globalPaddingInline: 2rem;
   background-color: col.$primary;
   color: col.$light;
 }
-
 .contactForm {
   label {
     display: none;
@@ -44,14 +43,35 @@ $globalPaddingInline: 2rem;
     padding-block: 0.5rem;
     padding-inline: 1rem;
     background-color: transparent;
-    border: 2px solid col.$light;
+    border: 2px solid col.$lightDark;
     margin-block: 1rem;
     &::placeholder {
-      color: col.$light;
+      color: col.$lightDark;
     }
   }
 }
-
+.bgPrimary {
+  .contactForm {
+    input,
+    textarea {
+      border: 2px solid col.$light;
+      &::placeholder {
+        color: col.$light;
+      }
+    }
+  }
+}
+.bgNone {
+  .contactForm {
+    input,
+    textarea {
+      &:focus {
+        border: 2px solid col.$highlight;
+        outline: none;
+      }
+    }
+  }
+}
 @media (max-width: $breakpoint) {
   .contactLeftFiller,
   .contactRightFiller {
