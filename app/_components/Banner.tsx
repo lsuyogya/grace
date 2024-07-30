@@ -4,7 +4,7 @@ import GetSupport from './icons/GetSupport';
 
 const Banner = ({
   imgUrl,
-  imgAlt,
+  imgAlt = '',
   overlayTitle,
   overlayTxt,
   overlayMaxWidth = '57ch',
@@ -12,7 +12,7 @@ const Banner = ({
   getSupport = false,
 }: {
   imgUrl: string;
-  imgAlt: string;
+  imgAlt?: string;
   overlayTitle: string;
   overlayTxt?: string;
   overlayMaxWidth?: string;

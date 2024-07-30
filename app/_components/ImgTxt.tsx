@@ -18,7 +18,7 @@ const ImgTxt = ({
   title: string;
   desc1stPara: string;
   desc2ndPara?: string;
-  readmoreLink: string;
+  readmoreLink?: string;
   ndisIconSrc: string;
   ndisIconAlt?: string;
 }) => {
@@ -36,11 +36,15 @@ const ImgTxt = ({
             <h1 className={style.title}>{title}</h1>
             <p>{desc1stPara}</p>
             {!desc2ndPara ? <></> : <p>{desc2ndPara}</p>}
-            <Link
-              href={readmoreLink}
-              className={`${style.readMore} uppercase font-semibold`}>
-              Read More <ArrowRight />{' '}
-            </Link>
+            {!readmoreLink ? (
+              <></>
+            ) : (
+              <Link
+                href={readmoreLink}
+                className={`${style.readMore} uppercase font-semibold`}>
+                Read More <ArrowRight />{' '}
+              </Link>
+            )}
             <Image
               src={ndisIconSrc}
               alt={ndisIconAlt ?? ''}

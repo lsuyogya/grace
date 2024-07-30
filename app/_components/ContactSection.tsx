@@ -5,10 +5,12 @@ const ContactSection = ({
   phone,
   email,
   address,
+  purple = true,
 }: {
   phone: string;
   email: string;
   address: string;
+  purple?: boolean;
 }) => {
   return (
     <section className={`${style.container} mainGrid`}>
@@ -55,14 +57,19 @@ const ContactSection = ({
               className="self-end w-full"
             />
           </div>
-          <div className={`${style.right} ${style.bgPrimary}`}>
+          <div
+            className={`${style.right} ${
+              purple ? style.bgPrimary : style.bgNone
+            }`}>
             <h1>Contact Form</h1>
             <ContactForm />
           </div>
         </div>
       </div>
       <div
-        className={`contentEnd-FullWidth ${style.bgPrimary} ${style.contactRightFiller}`}
+        className={`contentEnd-FullWidth ${
+          purple ? style.bgPrimary : style.bgNone
+        } ${style.contactRightFiller}`}
       />
     </section>
   );

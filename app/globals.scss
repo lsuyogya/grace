@@ -6,6 +6,8 @@
 :root {
   --highlightColor: #{col.$highlight};
   --darkColor: #{col.$dark};
+  accent-color: #{col.$highlight};
+  caret-color: #{col.$highlight};
 }
 
 @layer utilities {
@@ -40,6 +42,33 @@ $padding-inline: 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
+  border: 1px solid transparent;
+  transition-property: color, background-color, border-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  &:hover {
+    background-color: col.$light;
+    color: col.$highlight;
+    border-color: col.$highlight;
+  }
+}
+.btnPrimaryInverted {
+  background-color: col.$light;
+  color: col.$highlight;
+  padding-inline: 2rem;
+  padding-block: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid col.$highlight;
+  transition-property: color, background-color, border-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  &:hover {
+    background-color: col.$highlight;
+    color: col.$light;
+    border-color: transparent;
+  }
 }
 .contactGrid {
   display: grid;

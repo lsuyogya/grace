@@ -5,6 +5,11 @@ $breakpoint: 800rem /16;
 
 .banner {
   position: relative;
+  > img {
+    max-height: 60vh;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 .overlay {
   $border-rad: 1rem;
