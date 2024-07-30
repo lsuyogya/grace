@@ -1,0 +1,85 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+$breakpoint: 1000rem /16;
+$globalPaddingInline: 2rem;
+.container {
+  $formSectionIninePadding: clamp(calc(20rem / 16), 10vw, calc(80rem / 16));
+  margin-block-start: 4rem;
+  .content {
+    display: grid;
+    @media (min-width: $breakpoint) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    > * {
+      padding-block: $formSectionIninePadding;
+    }
+    @media (min-width: $breakpoint) {
+      .right {
+        padding-inline-start: $formSectionIninePadding;
+      }
+      .left {
+        padding-inline-end: $formSectionIninePadding;
+      }
+    }
+  }
+  h1 {
+    @include ty.titleH1;
+  }
+}
+
+.bgPrimary {
+  background-color: col.$primary;
+  color: col.$light;
+}
+
+.contactForm {
+  label {
+    display: none;
+  }
+  input,
+  textarea {
+    width: 100%;
+    border-radius: 1rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    background-color: transparent;
+    border: 2px solid col.$light;
+    margin-block: 1rem;
+    &::placeholder {
+      color: col.$light;
+    }
+  }
+}
+
+@media (max-width: $breakpoint) {
+  .contactLeftFiller,
+  .contactRightFiller {
+    display: none;
+  }
+}
+
+.right {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @media (max-width: $breakpoint) {
+    &::before {
+      background: col.$primary;
+      position: absolute;
+      inset: 0;
+      transform: translateX(-#{$globalPaddingInline / 2});
+      content: '';
+      z-index: -1;
+    }
+    &::after {
+      background: col.$primary;
+      position: absolute;
+      inset: 0;
+      transform: translateX(#{$globalPaddingInline / 2});
+      content: '';
+      z-index: -1;
+    }
+  }
+}

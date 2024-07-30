@@ -20,7 +20,7 @@ const Header = () => {
         <Image
           alt="Grace Support Services"
           src={'/gsslogo.png'}
-          width="101"
+          width="150"
           height="64"
           className="h-auto"
         />

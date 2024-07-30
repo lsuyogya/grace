@@ -7,7 +7,7 @@ const Banner = ({
   imgAlt,
   overlayTitle,
   overlayTxt,
-  overlayMaxWidth = '55ch',
+  overlayMaxWidth = '57ch',
   btnTxt = 'Enquire Now',
   getSupport = false,
 }: {
