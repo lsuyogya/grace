@@ -3,6 +3,7 @@ import ImgTxt from './_components/ImgTxt';
 import ListSection from './_components/ListSection';
 import OurServices from './_components/OurServices';
 import ClientTestimonials from './_components/ClientTestimonials';
+import ContactSection from './_components/ContactSection';
 
 export default function Home() {
   return (
@@ -37,6 +38,11 @@ export default function Home() {
       />
       <OurServices />
       <ClientTestimonials />
+      <ContactSection
+        address="3891 Ranchview Dr. Richardson, California 62639"
+        phone="(505) 555-0125"
+        email="gracesupport@service.com"
+      />
     </>
   );
 }

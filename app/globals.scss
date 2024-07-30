@@ -41,3 +41,18 @@ $padding-inline: 2rem;
   font-weight: 600;
   text-transform: uppercase;
 }
+.contactGrid {
+  display: grid;
+  grid-template-columns:
+    [fullWidth-start] 1fr [content-start]
+    min((100% - $padding-inline) /2, ($content-width)/2)
+    [contentMidLine]
+    min((100% - $padding-inline) /2, ($content-width)/2)
+    [content-end] 1fr [fullWidth-end];
+  grid-template-rows: min-content;
+}
+
+.contentEnd-FullWidth {
+  grid-column-start: content-end;
+  grid-column-end: fullWidth-end;
+}

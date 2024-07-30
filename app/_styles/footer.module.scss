@@ -1,0 +1,55 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+$breakpoint: 1000rem / 16;
+
+.footer {
+  background-color: col.$lightPink;
+  padding-block: calc(40rem / 16);
+  @media (max-width: $breakpoint) {
+    padding-block-end: 1rem;
+  }
+  nav {
+    display: grid;
+    place-content: center;
+    ul {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+.topSection {
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+    place-content: start;
+    place-items: start;
+    margin-block-end: 2rem;
+    nav ul {
+      display: grid;
+      margin-block: 1rem;
+    }
+  }
+}
+
+.middleSection {
+  display: grid;
+  * {
+    color: col.$lightDark;
+  }
+  .socialArray {
+    display: flex;
+    gap: 1.5rem;
+    margin-block-start: 0.5rem;
+  }
+}
+
+.dividerLine {
+  color: #3e3e3e;
+  margin-block-start: 2rem;
+  margin-block-end: 1rem;
+}
+
+.bottomSection {
+  row-gap: 0.5rem;
+}

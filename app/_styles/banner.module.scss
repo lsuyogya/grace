@@ -14,7 +14,7 @@ $breakpoint: 800rem /16;
   background-color: mix(col.$primary, transparent, 68%);
   border-top-right-radius: $border-rad;
   border-bottom-right-radius: $border-rad;
-  padding-inline: calc(40rem / 16);
+  padding-inline: clamp(1.25rem, 10vw, 5rem);
   padding-block: calc(30rem / 16);
   display: grid;
   gap: calc(8rem / 16);
