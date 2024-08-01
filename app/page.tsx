@@ -19,8 +19,8 @@ import ContactSection from './_components/ContactSection';
 // }
 
 export default async function Home() {
-  const data = await getData();
-  console.log(data);
+  // const data = await getData();
+  // console.log(data);
   return (
     <>
       <Banner
