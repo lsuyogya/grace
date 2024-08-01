@@ -7,16 +7,16 @@ import OurServices from './_components/OurServices';
 import ClientTestimonials from './_components/ClientTestimonials';
 import ContactSection from './_components/ContactSection';
 
-async function getData() {
-  // const res = await fetch(`${process.env.baseUrl}/homepage`);
-  const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
+// async function getData() {
+//   // const res = await fetch(`${process.env.baseUrl}/homepage`);
+//   const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
 
-  if (!res.ok) {
-    throw new Error('Fetching Failed');
-  }
-  const weewoo = res.json();
-  return weewoo;
-}
+//   if (!res.ok) {
+//     throw new Error('Fetching Failed');
+//   }
+//   const weewoo = res.json();
+//   return weewoo;
+// }
 
 export default async function Home() {
   const data = await getData();
