@@ -18,12 +18,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const socialIcons = [
+    { link: '/', iconPath: '/icons/x_logo.svg.svg' },
+    { link: '/', iconPath: '/icons/instagram_logo.svg.svg' },
+    { link: '/', iconPath: '/icons/tiktok_logo.svg.svg' },
+    { link: '/', iconPath: '/icons/facebook_logo.svg.svg' },
+    { link: '/', iconPath: '/icons/threads_logo.svg.svg' },
+  ];
   return (
     <html lang="en">
       <body className={inter.className + ' mainGrid' + ' min-h-screen'}>
-        <Header />
-        <main className="fullWidth">{children}</main>
-        <Footer />
+        <Header socialIcons={socialIcons} />
+        <main
+          className="fullWidth"
+          id="main">
+          {children}
+        </main>
+        <Footer socialIcons={socialIcons} />
       </body>
     </html>
   );

@@ -1,0 +1,65 @@
+@use './colors' as col;
+@use './typography' as ty;
+
+$breakpoint: 1000rem / 16;
+.contentWrapper {
+  display: grid;
+  margin-block: calc(40rem / 16);
+  @media (min-width: $breakpoint) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.leftContent {
+  h1 {
+    @include ty.titleH1;
+    color: col.$primary;
+    text-transform: uppercase;
+  }
+  h2 {
+    @include ty.titleH2;
+    color: col.$primary;
+    text-transform: uppercase;
+  }
+  p {
+    margin-block: 1rem;
+  }
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      margin-block: 1rem;
+      svg {
+        color: col.$highlight;
+      }
+    }
+  }
+}
+.rightWrapper {
+  @media (min-width: $breakpoint) {
+    padding-inline-start: clamp(2rem, 25vw, 30%);
+  }
+}
+.rightContent {
+  margin-inline: auto;
+  border-radius: 1rem;
+  background-color: col.$primary;
+  padding: calc(48rem / 16) calc(64rem / 16);
+  width: 100%;
+  box-sizing: border-box;
+
+  input,
+  textarea {
+    color: col.$light;
+    border-color: col.$light;
+    &::placeholder {
+      color: col.$light;
+    }
+  }
+  div:has(> button[type='submit']) {
+    display: flex;
+  }
+  button[type='submit'] {
+    margin-inline-start: auto;
+  }
+}

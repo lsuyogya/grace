@@ -1,3 +1,5 @@
+'use server';
+
 import Banner from './_components/Banner';
 import ImgTxt from './_components/ImgTxt';
 import ListSection from './_components/ListSection';
@@ -5,7 +7,20 @@ import OurServices from './_components/OurServices';
 import ClientTestimonials from './_components/ClientTestimonials';
 import ContactSection from './_components/ContactSection';
 
-export default function Home() {
+// async function getData() {
+//   // const res = await fetch(`${process.env.baseUrl}/homepage`);
+//   const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
+
+//   if (!res.ok) {
+//     throw new Error('Fetching Failed');
+//   }
+//   const weewoo = res.json();
+//   return weewoo;
+// }
+
+export default async function Home() {
+  // const data = await getData();
+  // console.log(data);
   return (
     <>
       <Banner

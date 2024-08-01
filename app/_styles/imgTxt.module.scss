@@ -35,6 +35,16 @@ $breakpoint: 1000rem / 16;
   align-items: center;
   gap: 0.5rem;
   color: col.$highlight;
+  svg {
+    transition: transform 300ms ease-in;
+  }
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+    svg {
+      transform: scale(1.1) translateX(0.25rem);
+    }
+  }
 }
 .ndisLogo {
   position: absolute;

@@ -4,15 +4,19 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-const Footer = () => {
+const Footer = ({
+  socialIcons,
+}: {
+  socialIcons: Array<{ link: string; iconPath: string }>;
+}) => {
   type menuItem = { path: string; label: string };
-  const socialIcons = [
-    { link: '/', iconPath: '/icons/x_logo.svg.svg' },
-    { link: '/', iconPath: '/icons/instagram_logo.svg.svg' },
-    { link: '/', iconPath: '/icons/tiktok_logo.svg.svg' },
-    { link: '/', iconPath: '/icons/facebook_logo.svg.svg' },
-    { link: '/', iconPath: '/icons/threads_logo.svg.svg' },
-  ];
+  // const socialIcons = [
+  //   { link: '/', iconPath: '/icons/x_logo.svg.svg' },
+  //   { link: '/', iconPath: '/icons/instagram_logo.svg.svg' },
+  //   { link: '/', iconPath: '/icons/tiktok_logo.svg.svg' },
+  //   { link: '/', iconPath: '/icons/facebook_logo.svg.svg' },
+  //   { link: '/', iconPath: '/icons/threads_logo.svg.svg' },
+  // ];
   const pathname = usePathname();
   const FooterMenu: Array<menuItem> = [
     { path: '/', label: 'Home' },
