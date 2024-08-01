@@ -85,3 +85,70 @@ $padding-inline: 2rem;
   grid-column-start: content-end;
   grid-column-end: fullWidth-end;
 }
+form {
+  label {
+    display: none;
+  }
+  input,
+  textarea {
+    width: 100%;
+    border-radius: 1rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    background-color: transparent;
+    border: 2px solid col.$lightDark;
+    margin-block: 1rem;
+    &::placeholder {
+      color: col.$lightDark;
+    }
+  }
+}
+header {
+  position: sticky;
+  top: 0;
+  background-color: col.$light;
+  z-index: 5;
+  box-shadow: 0;
+  transition: box-shadow 300ms ease-in;
+}
+header.header-shadow {
+  box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  a {
+    text-decoration-color: transparent;
+    transition: text-decoration-color 300ms ease-in;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.25rem;
+      text-decoration-color: auto;
+    }
+  }
+}
+
+[class*='socialArray'] {
+  li {
+    img {
+      transition: scale 200ms ease-in;
+    }
+    &:hover {
+      img {
+        scale: 1.15;
+      }
+    }
+  }
+}
+
+#skipToMainContent {
+  position: absolute;
+  padding: 1rem;
+  border: 2px solid col.$dark;
+  border-radius: 1rem;
+  left: 30%;
+  top: 0.5rem;
+  visibility: hidden;
+  &:focus {
+    visibility: visible;
+  }
+}

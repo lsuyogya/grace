@@ -8,4 +8,8 @@ module.exports = {
 
     return config;
   },
+  env: {
+    // baseUrl: 'http://192.168.101.13/grace/wp-json/my-api/v2',
+    baseUrl: 'http://localhost:5000',
+  },
 };

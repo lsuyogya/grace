@@ -26,7 +26,7 @@ const ContactSection = ({
                   height={48}
                   alt=""
                 />
-                <span>{phone}</span>
+                <span className="content-center">{phone}</span>
               </div>
               <div className="flex gap-4">
                 <Image
@@ -35,7 +35,7 @@ const ContactSection = ({
                   height={48}
                   alt=""
                 />
-                <span>{email}</span>
+                <span className="content-center">{email}</span>
               </div>
               <div className="flex gap-4">
                 <Image
@@ -44,7 +44,7 @@ const ContactSection = ({
                   height={48}
                   alt=""
                 />
-                <span>{address}</span>
+                <span className="content-center">{address}</span>
               </div>
             </div>
             <iframe
