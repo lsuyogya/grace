@@ -1,6 +1,7 @@
 @use './colors' as col;
-
+// @use 'sass:math';
 // Nav Stuff
+
 .nav {
   display: flex;
   color: col.$dark;
@@ -12,8 +13,93 @@
     gap: 24px;
     padding-inline: 1rem;
   }
-  .active {
-    color: col.$highlight;
-    font-weight: 700;
+}
+.active {
+  color: col.$highlight;
+  font-weight: 700;
+}
+.mobileNav {
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  height: 100dvh;
+  width: 100vw;
+  display: grid;
+  justify-content: end;
+  grid-template-rows: 1fr auto;
+  transition: transform 300ms ease-in-out,
+    background-color 300ms ease-in-out 300ms;
+  background-color: transparent;
+  transform: translateX(100%);
+  &:not([data-open]) {
+    transition: transform 300ms ease-in-out 300ms,
+      background-color 300ms ease-in-out;
+  }
+  &[data-open] {
+    transform: translateX(0%);
+    background-color: rgba(70, 70, 70, 0.322);
+    // transition: transform 300ms ease-in-out 300ms,
+    //   background-color 300ms ease-in-out;
+  }
+  nav {
+    > ul {
+      background-color: col.$light;
+      padding: 2rem;
+      padding-block-start: calc(100rem / 16);
+      display: grid;
+      gap: 1rem;
+      height: 100%;
+      min-width: 50vw;
+
+      grid-auto-rows: max-content;
+    }
+  }
+  .social {
+    background-color: col.$lightPink;
+    padding: 2rem 1rem;
+    // font-size: calc(12rem / 16);
+    ul {
+      display: flex;
+      margin-block-start: 1rem;
+      justify-content: space-around;
+      img {
+        max-width: calc(16rem / 16);
+      }
+    }
+  }
+}
+
+.hamburgerLine1,
+.hamburgerLine2,
+.hamburgerLine3 {
+  width: 32px;
+  height: 4px;
+  border-radius: 200vmax;
+  background-color: col.$primary;
+  margin: 6px 0;
+  transition-property: rotate, opacity, translate;
+  transition-delay: 300ms;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+// $btnHeight: (4rem / 16) * 3 + (6rem /16) * 2; //24px
+// $btnWidth: (32rem / 16); //32px
+.hamburgerButton {
+  $deg: 45deg;
+  $translateY: (0.5 + 0.75rem) /2;
+  // $translateY: ();
+  z-index: 20;
+  &[data-open] {
+    .hamburgerLine1 {
+      rotate: $deg;
+      translate: 0 #{$translateY};
+    }
+    .hamburgerLine2 {
+      opacity: 0;
+    }
+    .hamburgerLine3 {
+      rotate: -$deg;
+      translate: 0 -#{$translateY};
+    }
   }
 }

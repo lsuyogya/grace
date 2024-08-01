@@ -2,6 +2,8 @@
 
 import Banner from '@/app/_components/Banner';
 import CheckMark from '@/app/_components/icons/CheckMark';
+import style from '@/app/_styles/serviceDetail.module.scss';
+
 const data = {
   overlayTitle: 'Personal Care',
   imgUrl: '/service.png',
@@ -27,57 +29,74 @@ const Page = ({ params }: { params: { serviceName: string } }) => {
         overlayTitle={data.overlayTitle}
         imgUrl={data.imgUrl}
       />
-      <div className="leftContent">
-        <h1> {data.serviceTitle} </h1>
-        {data.serviceContent.map((contentParagraph, index) => (
-          <p key={index}> {contentParagraph}</p>
-        ))}
-      </div>
-      <h2> {data.listTitle} </h2>
-      <ul>
-        {data.listContent.map((listContent, index) => (
-          <li
-            key={index}
-            className="flex gap-1">
-            <CheckMark />
-            <span>{listContent}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="rightContent">
-        <form action="">
-          <div className="formGroup">
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              placeholder="Name"
-            />
+      <div className="mainGrid">
+        <div className="content">
+          <div className={`${style.contentWrapper}`}>
+            <div className={`${style.leftContent}`}>
+              <h1> {data.serviceTitle} </h1>
+              {data.serviceContent.map((contentParagraph, index) => (
+                <p key={index}> {contentParagraph}</p>
+              ))}
+              <h2> {data.listTitle} </h2>
+              <ul>
+                {data.listContent.map((listContent, index) => (
+                  <li
+                    key={index}
+                    className="flex gap-1">
+                    <CheckMark />
+                    <span>{listContent}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={style.rightWrapper}>
+              <div className={`${style.rightContent}`}>
+                <form action="">
+                  <div className="formGroup">
+                    <label htmlFor="name">Name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="formGroup">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div className="formGroup">
+                    <label htmlFor="contactNo">Contact Number</label>
+                    <input
+                      id="contactNo"
+                      name="contactNo"
+                      placeholder="Contact No"
+                    />
+                  </div>
+                  <div className="formGroup">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      placeholder="Message"
+                      rows={5}
+                    />
+                  </div>
+                  <div className="formGroup">
+                    <button
+                      type="submit"
+                      className="btnPrimary">
+                      Enquire Now
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="formGroup">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              placeholder="Email"
-            />
-          </div>
-          <div className="formGroup">
-            <label htmlFor="contactNo">Contact Number</label>
-            <input
-              id="contactNo"
-              name="contactNo"
-              placeholder="Contact No"
-            />
-          </div>
-          <div className="formGroup">
-            <button
-              type="submit"
-              className="btnPrimary">
-              Enquire Now
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );
