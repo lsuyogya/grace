@@ -21,9 +21,6 @@ module.exports = {
     ],
   },
   env: {
-    localhostIp: '192.168.101.8',
     baseUrl: 'https://grace.codeilo.com/api/wp-json/my-api/v2',
-    // baseUrl: 'http://192.168.101.8/grace/wp-json/my-api/v2',
-    // baseUrl: 'http://localhost:5000',
   },
 };

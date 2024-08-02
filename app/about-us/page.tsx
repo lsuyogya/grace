@@ -6,7 +6,9 @@ import ListSection from '../_components/ListSection';
 import MiniServices from '../_components/MiniServices';
 
 async function getData() {
-  const res = await fetch(`${process.env.baseUrl}/about`);
+  const res = await fetch(`${process.env.baseUrl}/about`, {
+    cache: 'reload',
+  });
   if (!res.ok) {
     throw new Error('Fetch Failed');
   }
@@ -34,7 +36,12 @@ export default async function Page() {
         btnLink="/"
         listArray={data.why_grace_desc}
       />
-      <ClientTestimonials title={data.testimonial_title} />
+      <ClientTestimonials
+        title={data.testimonial_title}
+        btnLink={data.testimonial_btn_url}
+        btnTxt={data.testimonial_btn_text}
+        testimonialList={data.testimonial_lists}
+      />
       <MiniServices
         serviceTitle={data.services_title}
         serviceList={data.services_lists}

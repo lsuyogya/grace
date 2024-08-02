@@ -20,7 +20,6 @@ const ImgTxt = ({
   ndisIconSrc: string;
   ndisIconAlt?: string;
 }) => {
-  console.log(desc);
   return (
     <section className="mainGrid">
       <div className="content">
