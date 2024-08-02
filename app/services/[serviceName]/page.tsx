@@ -4,49 +4,43 @@ import Banner from '@/app/_components/Banner';
 import CheckMark from '@/app/_components/icons/CheckMark';
 import style from '@/app/_styles/serviceDetail.module.scss';
 
-const data = {
-  overlayTitle: 'Personal Care',
-  imgUrl: '/service.png',
-  serviceTitle: 'Personal Care Support',
-  serviceContent: [
-    'At GSS, our personal care supports focus on assisting with daily personal activities. This includes help or supervision with everyday tasks essential for daily living.',
-    'We are dedicated to ensuring that each individual receives the necessary support to maintain their independence and quality of life. Our services are tailored to meet the unique needs of each person, providing compassionate and reliable assistance.',
-  ],
-  listTitle: 'You can Expect',
-  listContent: [
-    'Personal hygiene, including showering, bathing, oral hygiene, dressing and grooming.',
-    'Assist with toileting, bladder and bowel management including menstrual care.',
-    'Assist with medication as per the direction.',
-  ],
+const getData = async (serviceName: string) => {
+  const res = await fetch(`${process.env.baseUrl}/services/${serviceName}`);
+  if (!res.ok) throw new Error(`Fetch failed on services/${serviceName}`);
+  return res.json();
 };
-// import { useRouter } from 'next/router';
-const Page = ({ params }: { params: { serviceName: string } }) => {
-  // const router = useRouter();
-  // return <>Service Name: {router.query.serviceName} </>;
+
+const Page = async ({ params }: { params: { serviceName: string } }) => {
+  const data = await getData(params.serviceName);
+  console.log(data);
   return (
     <>
       <Banner
-        overlayTitle={data.overlayTitle}
-        imgUrl={data.imgUrl}
+        overlayTitle={data.banner_title}
+        imgUrl={data.banner_image}
       />
       <div className="mainGrid">
         <div className="content">
           <div className={`${style.contentWrapper}`}>
             <div className={`${style.leftContent}`}>
-              <h1> {data.serviceTitle} </h1>
-              {data.serviceContent.map((contentParagraph, index) => (
-                <p key={index}> {contentParagraph}</p>
-              ))}
-              <h2> {data.listTitle} </h2>
+              <h1> {data.description_title} </h1>
+              {data.description_content.map(
+                (contentParagraph: string, index: number) => (
+                  <p key={index}> {contentParagraph}</p>
+                )
+              )}
+              <h2> {data.expectation_title} </h2>
               <ul>
-                {data.listContent.map((listContent, index) => (
-                  <li
-                    key={index}
-                    className="flex gap-1">
-                    <CheckMark />
-                    <span>{listContent}</span>
-                  </li>
-                ))}
+                {data.expectation_content.map(
+                  (listContent: { description: string }, index: number) => (
+                    <li
+                      key={index}
+                      className="flex gap-1">
+                      <CheckMark />
+                      <span>{listContent.description}</span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
             <div className={style.rightWrapper}>

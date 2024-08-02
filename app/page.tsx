@@ -17,8 +17,8 @@ async function getData() {
   if (!res.ok) {
     throw new Error('Fetching Failed');
   }
-  const weewoo = res.json();
-  return weewoo;
+  const data = res.json();
+  return data;
 }
 
 export default async function Home() {
@@ -60,7 +60,12 @@ export default async function Home() {
         serviceTitle={data.services_title}
         serviceArray={data.services_lists}
       />
-      <ClientTestimonials title={data.testimonial_title} />
+      <ClientTestimonials
+        title={data.testimonial_title}
+        btnLink={data.testimonial_btn_url}
+        btnTxt={data.testimonial_btn_text}
+        testimonialList={data.testimonial_lists}
+      />
       <ContactSection
         title={data.contact_title}
         address={data.address}
