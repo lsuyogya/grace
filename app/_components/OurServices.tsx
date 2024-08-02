@@ -67,22 +67,34 @@ const sampleJson = [
     btnLabel: 'Learn more',
   },
 ];
-
-const OurServices = ({ serviceTitle }: { serviceTitle: string }) => {
+type serviceObj = {
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  btnLabel?: string;
+};
+const OurServices = ({
+  serviceTitle,
+  serviceArray,
+}: {
+  serviceTitle: string;
+  serviceArray: Array<serviceObj>;
+}) => {
   return (
     <section className="mainGrid">
       <div className="content">
         <div className={style.container}>
           <h1>{serviceTitle}</h1>
           <div className={style.cardContainer}>
-            {sampleJson.map((service) => (
+            {serviceArray.map((service) => (
               <ServiceCard
-                imgSrc={service.imgSrc}
-                title={service.title}
+                imgSrc={service.image}
+                title={service.title.replace('&#038;', '&')}
                 description={service.description}
-                link={service.link}
-                btnLabel={service.btnLabel}
-                key={service.title}
+                link={`/services/${service.slug}`}
+                btnLabel={service.btnLabel ?? 'Learn More'}
+                key={service.slug}
               />
             ))}
           </div>

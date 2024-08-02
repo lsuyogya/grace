@@ -9,6 +9,7 @@ const page = () => {
         overlayTitle="Contact Us"
       />
       <ContactSection
+        title="Get in Touch"
         phone="(505) 555-0125"
         email="gracesupport@service.com"
         address="3891 Ranchview Dr. Richardson, California 62639"
