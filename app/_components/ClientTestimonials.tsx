@@ -5,13 +5,13 @@ import HalfStar from './icons/HalfStar';
 import FullStar from './icons/FullStar';
 import EmptyStar from './icons/EmptyStar';
 
-const ClientTestimonials = () => {
+const ClientTestimonials = ({ title }: { title: string }) => {
   return (
     <section className={`${style.container} mainGrid`}>
       <div className="content">
         <div
           className={`${style.top} flex gap-4 flex-wrap justify-between mb-6`}>
-          <h1>Our Client Testimonials</h1>
+          <h1>{title}</h1>
           <Link href="/">
             <button className="btnPrimary uppercase">
               Review us on Google

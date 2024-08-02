@@ -68,12 +68,12 @@ const sampleJson = [
   },
 ];
 
-const OurServices = () => {
+const OurServices = ({ serviceTitle }: { serviceTitle: string }) => {
   return (
     <section className="mainGrid">
       <div className="content">
         <div className={style.container}>
-          <h1>Our Services</h1>
+          <h1>{serviceTitle}</h1>
           <div className={style.cardContainer}>
             {sampleJson.map((service) => (
               <ServiceCard
