@@ -16,7 +16,7 @@ const ListSection = ({
   title: string;
   btnLabel: string;
   btnLink: string;
-  listArray: Array<string>;
+  listArray: Array<{ services: string }>;
 }) => {
   return (
     <section className={style.container}>
@@ -38,7 +38,7 @@ const ListSection = ({
           {listArray.map((list, index) => (
             <li key={index}>
               <CheckMark />
-              <span>{list}</span>
+              <span>{list.services}</span>
             </li>
           ))}
         </ul>

@@ -6,18 +6,20 @@ const ContactSection = ({
   email,
   address,
   purple = true,
+  title,
 }: {
   phone: string;
   email: string;
   address: string;
   purple?: boolean;
+  title: string;
 }) => {
   return (
     <section className={`${style.container} mainGrid`}>
       <div className="content">
         <div className={style.content}>
           <div className={`${style.left} grid`}>
-            <h1>Get in Touch</h1>
+            <h1>{title}</h1>
             <div className="grid gap-2 mt-6">
               <div className="flex gap-4">
                 <Image

@@ -8,55 +8,64 @@ import ClientTestimonials from './_components/ClientTestimonials';
 import ContactSection from './_components/ContactSection';
 
 // async function getData() {
-//   // const res = await fetch(`${process.env.baseUrl}/homepage`);
-//   const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
+//   const res = await fetch(`${process.env.baseUrl}/homepage`);
+// const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
+async function getData() {
+  const res = await fetch(`${process.env.baseUrl}/homepage`);
+  // const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
 
-//   if (!res.ok) {
-//     throw new Error('Fetching Failed');
-//   }
-//   const weewoo = res.json();
-//   return weewoo;
-// }
+  if (!res.ok) {
+    throw new Error('Fetching Failed');
+  }
+  const weewoo = res.json();
+  return weewoo;
+}
 
 export default async function Home() {
+  const data = await getData();
+  // const localhostReplacement = process.env.localhostIp;
+  console.log(data);
+  // const replacelocalHost = (url: string) => {
+  //   return url.replace('localhost', localhostReplacement as string);
+  // };
   // const data = await getData();
   // console.log(data);
   return (
     <>
       <Banner
         imgAlt="Banner"
-        imgUrl="/banner1.jfif"
-        overlayTitle="Empowering Lives EveryDay"
-        overlayTxt="We are a trusted National Disability Insurance Scheme (NDIS) registered service provider working with"
+        // imgUrl={replacelocalHost(data.banner_image)}
+        imgUrl={data.banner_image}
+        overlayTitle={data.banner_title}
+        overlayTxt={data.banner_description}
         getSupport={true}
       />
       <ImgTxt
-        imgSrc="/team.jpg"
-        title="Welcome to Grace"
-        desc1stPara="We are a trusted National Disability Insurance Scheme (NDIS) registered service provider working with Support Workers and families to empower and inspire people living with various health and disability needs across different states in Australia."
-        desc2ndPara="Our client-based services are centred on knowing and protecting your rights. We partner with like-minded organizations that want to empower people and help those that need extra care get access to the required services. With us, you will feel safe every day, always supported, comfortable, and cared for by well-trained staff and partners who meet all the integrity requirements."
-        readmoreLink="/"
+        // imgSrc={replacelocalHost(data.about_image)}
+        imgSrc={data.about_image}
+        title={data.about_title}
+        desc={data.about_description}
+        readmoreLink="/about-us"
         ndisIconSrc="/nids.png"
       />
       <ListSection
-        imgSrc="/b2.jfif"
-        title="Why Choose Grace Support Service"
+        // imgSrc={replacelocalHost(data.why_grace_image)}
+        imgSrc={data.why_grace_image}
+        title={data.why_grace_title}
         btnLabel="Get Support"
         btnLink="/"
-        listArray={[
-          'Grace Support Services comprises well-trained professionals.',
-          'The team is highly skilled in providing clientele-focused solutions.',
-          'The disability services team understands the importance of enhancing wellbeing.',
-          "They respect and support clients' choices.",
-          'The team upholds the highest standards of integrity and professionalism.',
-        ]}
+        listArray={data.why_grace_desc}
       />
-      <OurServices />
-      <ClientTestimonials />
+      <OurServices
+        serviceTitle={data.services_title}
+        serviceArray={data.services_lists}
+      />
+      <ClientTestimonials title={data.testimonial_title} />
       <ContactSection
-        address="3891 Ranchview Dr. Richardson, California 62639"
-        phone="(505) 555-0125"
-        email="gracesupport@service.com"
+        title={data.contact_title}
+        address={data.address}
+        phone={data.phone}
+        email={data.email}
       />
     </>
   );

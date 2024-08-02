@@ -28,27 +28,39 @@ const sampleJson = [
     btnLabel: 'Learn more',
   },
 ];
-
-const MiniServices = () => {
+type serviceObj = {
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  btnLabel?: string;
+};
+const MiniServices = ({
+  serviceTitle,
+  serviceList,
+}: {
+  serviceTitle: string;
+  serviceList: serviceObj[];
+}) => {
   return (
     <section className="mainGrid">
       <div className="content">
         <div className={style.container}>
           <div className="flex flex-wrap justify-between">
-            <h1>Our Services</h1>
+            <h1>{serviceTitle}</h1>
             <Link href="/services">
               <button className="btnPrimaryInverted">View All</button>
             </Link>
           </div>
           <div className={style.cardContainer}>
-            {sampleJson.map((service) => (
+            {serviceList.map((service) => (
               <ServiceCard
-                imgSrc={service.imgSrc}
-                title={service.title}
+                imgSrc={service.image}
+                title={service.title.replace('&#038;', '&')}
                 description={service.description}
-                link={service.link}
-                btnLabel={service.btnLabel}
-                key={service.title}
+                link={`/services/${service.slug}`}
+                btnLabel={service.btnLabel ?? 'Learn More'}
+                key={service.slug}
               />
             ))}
           </div>
