@@ -2,6 +2,7 @@
 
 import style from "@/app/_styles/contactSection.module.scss";
 import Image from "next/image";
+import { SubmitButton } from "./SubmitButton";
 
 const ContactSection = ({
   phone,
@@ -126,6 +127,7 @@ export const ContactForm = () => {
           type="text"
           pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
           placeholder="9870000000"
+          required
         />
       </div>
       <div className="formGroup">
@@ -138,9 +140,10 @@ export const ContactForm = () => {
         />
       </div>
       <div className="formGroup">
-        <button type="submit" className="btnPrimary uppercase float-right">
-          Send Now
-        </button>
+        <SubmitButton
+          btnLabel="Send Now"
+          className="btnPrimary uppercase float-right"
+        />
       </div>
     </form>
   );

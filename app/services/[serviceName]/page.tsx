@@ -3,6 +3,7 @@
 import Banner from "@/app/_components/Banner";
 import CheckMark from "@/app/_components/icons/CheckMark";
 import style from "@/app/_styles/serviceDetail.module.scss";
+import { SubmitButton } from "@/app/_components/SubmitButton";
 
 const getData = async (serviceName: string) => {
   const res = await fetch(`${process.env.baseUrl}/services/${serviceName}`);
@@ -12,17 +13,19 @@ const getData = async (serviceName: string) => {
 
 const Page = async ({ params }: { params: { serviceName: string } }) => {
   const data = await getData(params.serviceName);
-  async function formAction(formData: FormData) {
+  async function formAction(serviceName: string, formData: FormData) {
     "use server";
+    console.log(serviceName);
     const rawFormData = {
       full_name: formData.get("name"),
       email_address: formData.get("email"),
       contact_no: formData.get("contactNo"),
       message: formData.get("message"),
+      service_name: serviceName,
     };
 
     try {
-      const response = await fetch(`${process.env.baseUrl}/contact-form`, {
+      const response = await fetch(`${process.env.baseUrl}/service-enquiry`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,6 +44,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
     }
   }
 
+  const formActionWithService = formAction.bind(null, params.serviceName);
   return (
     <>
       <Banner overlayTitle={data.banner_title} imgUrl={data.banner_image} />
@@ -68,7 +72,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
             </div>
             <div className={style.rightWrapper}>
               <div className={`${style.rightContent}`}>
-                <form action={formAction}>
+                <form action={formActionWithService}>
                   <div className="formGroup">
                     <label htmlFor="name">Name</label>
                     <input id="name" name="name" placeholder="Name" />
@@ -83,6 +87,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
                       id="contactNo"
                       name="contactNo"
                       placeholder="Contact No"
+                      required
                     />
                   </div>
                   <div className="formGroup">
@@ -95,9 +100,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
                     />
                   </div>
                   <div className="formGroup">
-                    <button type="submit" className="btnPrimary">
-                      Enquire Now
-                    </button>
+                    <SubmitButton btnLabel="Enquire Now" />
                   </div>
                 </form>
               </div>
