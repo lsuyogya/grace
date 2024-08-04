@@ -1,19 +1,19 @@
-'use server';
-import Banner from '../_components/Banner';
-import ContactSection from '../_components/ContactSection';
-import OurServices from '../_components/OurServices';
+"use server";
+import Banner from "../_components/Banner";
+import ContactSection from "../_components/ContactSection";
+import OurServices from "../_components/OurServices";
 
 const getData = async () => {
   const res = await fetch(`${process.env.baseUrl}/services`);
   if (!res.ok) {
-    throw new Error('Fetch failed');
+    throw new Error("Fetch failed");
   }
   return res.json();
 };
 
 const Services = async () => {
   const data = await getData();
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
