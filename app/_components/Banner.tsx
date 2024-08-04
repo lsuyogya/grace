@@ -1,14 +1,15 @@
-import Image from 'next/image';
-import style from '@/app/_styles/banner.module.scss';
-import GetSupport from './icons/GetSupport';
+import Image from "next/image";
+import style from "@/app/_styles/banner.module.scss";
+import GetSupport from "./icons/GetSupport";
+import Link from "next/link";
 
 const Banner = ({
   imgUrl,
-  imgAlt = '',
+  imgAlt = "",
   overlayTitle,
   overlayTxt,
-  overlayMaxWidth = '57ch',
-  btnTxt = 'Enquire Now',
+  overlayMaxWidth = "57ch",
+  btnTxt = "Enquire Now",
   getSupport = false,
 }: {
   imgUrl: string;
@@ -24,20 +25,20 @@ const Banner = ({
       <Image
         src={imgUrl}
         alt={imgAlt}
-        height={'2000'}
-        width={'2000'}
+        height={"2000"}
+        width={"2000"}
         className="w-screen h-auto"
       />
-      <div
-        className={style.overlay}
-        style={{ maxWidth: overlayMaxWidth }}>
+      <div className={style.overlay} style={{ maxWidth: overlayMaxWidth }}>
         <h1 className={style.overlayTitle}>{overlayTitle}</h1>
         {!overlayTxt ? <></> : <p className={style.overlayTxt}>{overlayTxt}</p>}
       </div>
       {/* TODO: Open modal when btn clicked  */}
-      <button className={`${style.enquireBtn} font-bold uppercase`}>
-        {btnTxt}
-      </button>
+      <Link href="/contact-us">
+        <button className={`${style.enquireBtn} font-bold uppercase`}>
+          {btnTxt}
+        </button>
+      </Link>
       {!getSupport ? (
         <></>
       ) : (

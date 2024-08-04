@@ -1,8 +1,8 @@
-'use server';
+"use server";
 
-import Banner from '@/app/_components/Banner';
-import CheckMark from '@/app/_components/icons/CheckMark';
-import style from '@/app/_styles/serviceDetail.module.scss';
+import Banner from "@/app/_components/Banner";
+import CheckMark from "@/app/_components/icons/CheckMark";
+import style from "@/app/_styles/serviceDetail.module.scss";
 
 const getData = async (serviceName: string) => {
   const res = await fetch(`${process.env.baseUrl}/services/${serviceName}`);
@@ -12,13 +12,38 @@ const getData = async (serviceName: string) => {
 
 const Page = async ({ params }: { params: { serviceName: string } }) => {
   const data = await getData(params.serviceName);
-  console.log(data);
+  async function formAction(formData: FormData) {
+    "use server";
+    const rawFormData = {
+      full_name: formData.get("name"),
+      email_address: formData.get("email"),
+      contact_no: formData.get("contactNo"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch(`${process.env.baseUrl}/contact-form`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(rawFormData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
   return (
     <>
-      <Banner
-        overlayTitle={data.banner_title}
-        imgUrl={data.banner_image}
-      />
+      <Banner overlayTitle={data.banner_title} imgUrl={data.banner_image} />
       <div className="mainGrid">
         <div className="content">
           <div className={`${style.contentWrapper}`}>
@@ -33,9 +58,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
               <ul>
                 {data.expectation_content.map(
                   (listContent: { description: string }, index: number) => (
-                    <li
-                      key={index}
-                      className="flex gap-1">
+                    <li key={index} className="flex gap-1">
                       <CheckMark />
                       <span>{listContent.description}</span>
                     </li>
@@ -45,22 +68,14 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
             </div>
             <div className={style.rightWrapper}>
               <div className={`${style.rightContent}`}>
-                <form action="">
+                <form action={formAction}>
                   <div className="formGroup">
                     <label htmlFor="name">Name</label>
-                    <input
-                      id="name"
-                      name="name"
-                      placeholder="Name"
-                    />
+                    <input id="name" name="name" placeholder="Name" />
                   </div>
                   <div className="formGroup">
                     <label htmlFor="email">Email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                    />
+                    <input id="email" name="email" placeholder="Email" />
                   </div>
                   <div className="formGroup">
                     <label htmlFor="contactNo">Contact Number</label>
@@ -80,9 +95,7 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
                     />
                   </div>
                   <div className="formGroup">
-                    <button
-                      type="submit"
-                      className="btnPrimary">
+                    <button type="submit" className="btnPrimary">
                       Enquire Now
                     </button>
                   </div>
