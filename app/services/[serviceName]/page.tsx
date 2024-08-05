@@ -1,9 +1,11 @@
-"use server";
+'use server';
 
-import Banner from "@/app/_components/Banner";
-import CheckMark from "@/app/_components/icons/CheckMark";
-import style from "@/app/_styles/serviceDetail.module.scss";
-import { SubmitButton } from "@/app/_components/SubmitButton";
+import Banner from '@/app/_components/Banner';
+import CheckMark from '@/app/_components/icons/CheckMark';
+import style from '@/app/_styles/serviceDetail.module.scss';
+import { SubmitButton } from '@/app/_components/SubmitButton';
+import ClientTestimonials from '@/app/_components/ClientTestimonials';
+import MiniServices from '@/app/_components/MiniServices';
 
 const getData = async (serviceName: string) => {
   const res = await fetch(`${process.env.baseUrl}/services/${serviceName}`);
@@ -14,21 +16,21 @@ const getData = async (serviceName: string) => {
 const Page = async ({ params }: { params: { serviceName: string } }) => {
   const data = await getData(params.serviceName);
   async function formAction(serviceName: string, formData: FormData) {
-    "use server";
+    'use server';
     console.log(serviceName);
     const rawFormData = {
-      full_name: formData.get("name"),
-      email_address: formData.get("email"),
-      contact_no: formData.get("contactNo"),
-      message: formData.get("message"),
+      full_name: formData.get('name'),
+      email_address: formData.get('email'),
+      contact_no: formData.get('contactNo'),
+      message: formData.get('message'),
       service_name: serviceName,
     };
 
     try {
       const response = await fetch(`${process.env.baseUrl}/service-enquiry`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(rawFormData),
       });
@@ -38,16 +40,19 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
       }
 
       const result = await response.json();
-      console.log("Success:", result);
+      console.log('Success:', result);
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
   }
 
   const formActionWithService = formAction.bind(null, params.serviceName);
   return (
     <>
-      <Banner overlayTitle={data.banner_title} imgUrl={data.banner_image} />
+      <Banner
+        overlayTitle={data.banner_title}
+        imgUrl={data.banner_image}
+      />
       <div className="mainGrid">
         <div className="content">
           <div className={`${style.contentWrapper}`}>
@@ -62,7 +67,9 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
               <ul>
                 {data.expectation_content.map(
                   (listContent: { description: string }, index: number) => (
-                    <li key={index} className="flex gap-1">
+                    <li
+                      key={index}
+                      className="flex gap-1">
                       <CheckMark />
                       <span>{listContent.description}</span>
                     </li>
@@ -75,11 +82,19 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
                 <form action={formActionWithService}>
                   <div className="formGroup">
                     <label htmlFor="name">Name</label>
-                    <input id="name" name="name" placeholder="Name" />
+                    <input
+                      id="name"
+                      name="name"
+                      placeholder="Name"
+                    />
                   </div>
                   <div className="formGroup">
                     <label htmlFor="email">Email</label>
-                    <input id="email" name="email" placeholder="Email" />
+                    <input
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                    />
                   </div>
                   <div className="formGroup">
                     <label htmlFor="contactNo">Contact Number</label>
@@ -108,6 +123,16 @@ const Page = async ({ params }: { params: { serviceName: string } }) => {
           </div>
         </div>
       </div>
+      <ClientTestimonials
+        title={data.testimonial_title}
+        btnLink={data.testimonial_btn_url}
+        btnTxt={data.testimonial_btn_text}
+        testimonialList={data.testimonial_lists}
+      />
+      <MiniServices
+        serviceList={data.services_lists}
+        serviceTitle={data.services_title}
+      />
     </>
   );
 };
