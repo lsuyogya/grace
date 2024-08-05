@@ -3,101 +3,69 @@
 import Banner from '@/app/_components/Banner';
 import CheckMark from '@/app/_components/icons/CheckMark';
 import style from '@/app/_styles/serviceDetail.module.scss';
+import { SubmitButton } from '@/app/_components/SubmitButton';
+import ClientTestimonials from '@/app/_components/ClientTestimonials';
+import MiniServices from '@/app/_components/MiniServices';
+import serviceDetailFormSubmit from '@/app/actions/serviceDetailFormSubmit';
+import ServiceDetailForm from './ServiceDetailForm';
 
-const data = {
-  overlayTitle: 'Personal Care',
-  imgUrl: '/service.png',
-  serviceTitle: 'Personal Care Support',
-  serviceContent: [
-    'At GSS, our personal care supports focus on assisting with daily personal activities. This includes help or supervision with everyday tasks essential for daily living.',
-    'We are dedicated to ensuring that each individual receives the necessary support to maintain their independence and quality of life. Our services are tailored to meet the unique needs of each person, providing compassionate and reliable assistance.',
-  ],
-  listTitle: 'You can Expect',
-  listContent: [
-    'Personal hygiene, including showering, bathing, oral hygiene, dressing and grooming.',
-    'Assist with toileting, bladder and bowel management including menstrual care.',
-    'Assist with medication as per the direction.',
-  ],
+const getData = async (serviceName: string) => {
+  const res = await fetch(`${process.env.baseUrl}/services/${serviceName}`);
+  if (!res.ok) throw new Error(`Fetch failed on services/${serviceName}`);
+  return res.json();
 };
-// import { useRouter } from 'next/router';
-const Page = ({ params }: { params: { serviceName: string } }) => {
-  // const router = useRouter();
-  // return <>Service Name: {router.query.serviceName} </>;
+
+const Page = async ({ params }: { params: { serviceName: string } }) => {
+  const data = await getData(params.serviceName);
+
   return (
     <>
       <Banner
-        overlayTitle={data.overlayTitle}
-        imgUrl={data.imgUrl}
+        overlayTitle={data.banner_title}
+        imgUrl={data.banner_image}
       />
       <div className="mainGrid">
         <div className="content">
           <div className={`${style.contentWrapper}`}>
             <div className={`${style.leftContent}`}>
-              <h1> {data.serviceTitle} </h1>
-              {data.serviceContent.map((contentParagraph, index) => (
-                <p key={index}> {contentParagraph}</p>
-              ))}
-              <h2> {data.listTitle} </h2>
+              <h1> {data.description_title} </h1>
+              {data.description_content?.map(
+                (contentParagraph: string, index: number) => (
+                  <p key={index}> {contentParagraph}</p>
+                )
+              )}
+              <h2> {data.expectation_title} </h2>
               <ul>
-                {data.listContent.map((listContent, index) => (
-                  <li
-                    key={index}
-                    className="flex gap-1">
-                    <CheckMark />
-                    <span>{listContent}</span>
-                  </li>
-                ))}
+                {data.expectation_content?.map(
+                  (listContent: { description: string }, index: number) => (
+                    <li
+                      key={index}
+                      className="flex gap-1">
+                      <CheckMark />
+                      <span>{listContent.description}</span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
             <div className={style.rightWrapper}>
               <div className={`${style.rightContent}`}>
-                <form action="">
-                  <div className="formGroup">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      id="name"
-                      name="name"
-                      placeholder="Name"
-                    />
-                  </div>
-                  <div className="formGroup">
-                    <label htmlFor="email">Email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="formGroup">
-                    <label htmlFor="contactNo">Contact Number</label>
-                    <input
-                      id="contactNo"
-                      name="contactNo"
-                      placeholder="Contact No"
-                    />
-                  </div>
-                  <div className="formGroup">
-                    <label htmlFor="message">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Message"
-                      rows={5}
-                    />
-                  </div>
-                  <div className="formGroup">
-                    <button
-                      type="submit"
-                      className="btnPrimary">
-                      Enquire Now
-                    </button>
-                  </div>
-                </form>
+                <ServiceDetailForm serviceName={params.serviceName} />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ClientTestimonials
+        title={data.testimonial_title}
+        btnLink={data.testimonial_btn_url}
+        btnTxt={data.testimonial_btn_text}
+        testimonialList={data.testimonial_lists}
+      />
+      <MiniServices
+        serviceList={data.services_lists}
+        serviceTitle={data.services_title}
+      />
     </>
   );
 };

@@ -8,8 +8,19 @@ module.exports = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '192.168.101.8',
+      },
+      {
+        protocol: 'https',
+        hostname: 'grace.codeilo.com',
+      },
+    ],
+  },
   env: {
-    // baseUrl: 'http://192.168.101.13/grace/wp-json/my-api/v2',
-    baseUrl: 'http://localhost:5000',
+    baseUrl: 'https://grace.codeilo.com/api/wp-json/my-api/v2',
   },
 };

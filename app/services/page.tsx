@@ -1,21 +1,36 @@
-import Banner from '../_components/Banner';
-import ContactSection from '../_components/ContactSection';
-import OurServices from '../_components/OurServices';
+"use server";
+import Banner from "../_components/Banner";
+import ContactSection from "../_components/ContactSection";
+import OurServices from "../_components/OurServices";
 
-const Services = () => {
+const getData = async () => {
+  const res = await fetch(`${process.env.baseUrl}/services`);
+  if (!res.ok) {
+    throw new Error("Fetch failed");
+  }
+  return res.json();
+};
+
+const Services = async () => {
+  const data = await getData();
+  // console.log(data);
+
   return (
     <>
       <Banner
-        imgUrl="/banner2.jfif"
-        overlayTitle="Our Services"
-        overlayTxt="We support all types of transitions educational, developmental, social, vocational, physical, and emotional."
+        imgUrl={data.banner_image}
+        overlayTitle={data.banner_title}
+        overlayTxt={data.banner_description}
       />
-      <OurServices />
+      <OurServices
+        serviceTitle={data.services_title}
+        serviceArray={data.services_lists}
+      />
       <ContactSection
-        phone="(505) 555-0125"
-        email="gracesupport@service.com"
-        address="3891 Ranchview Dr. Richardson,
-California 62639"
+        title={data.contact_title}
+        phone={data.phone}
+        email={data.email}
+        address={data.address}
       />
     </>
   );

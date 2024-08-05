@@ -1,5 +1,5 @@
-@use './colors' as col;
-@use './typography' as ty;
+@use "./colors" as col;
+@use "./typography" as ty;
 
 $breakpoint: 1000rem /16;
 $globalPaddingInline: 2rem;
@@ -85,12 +85,13 @@ $globalPaddingInline: 2rem;
   z-index: 1;
 
   @media (max-width: $breakpoint) {
+    color: col.$light;
     &::before {
       background: col.$primary;
       position: absolute;
       inset: 0;
       transform: translateX(-#{$globalPaddingInline / 2});
-      content: '';
+      content: "";
       z-index: -1;
     }
     &::after {
@@ -98,8 +99,15 @@ $globalPaddingInline: 2rem;
       position: absolute;
       inset: 0;
       transform: translateX(#{$globalPaddingInline / 2});
-      content: '';
+      content: "";
       z-index: -1;
+    }
+    input,
+    textarea {
+      border-color: col.$light;
+      &::placeholder {
+        color: col.$light;
+      }
     }
   }
 }

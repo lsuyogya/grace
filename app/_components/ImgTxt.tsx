@@ -7,8 +7,7 @@ const ImgTxt = ({
   imgSrc,
   imgAlt,
   title,
-  desc1stPara,
-  desc2ndPara,
+  desc,
   readmoreLink,
   ndisIconSrc,
   ndisIconAlt,
@@ -16,8 +15,7 @@ const ImgTxt = ({
   imgSrc: string;
   imgAlt?: string;
   title: string;
-  desc1stPara: string;
-  desc2ndPara?: string;
+  desc: string[];
   readmoreLink?: string;
   ndisIconSrc: string;
   ndisIconAlt?: string;
@@ -34,8 +32,10 @@ const ImgTxt = ({
           />
           <div className={style.txt}>
             <h1 className={style.title}>{title}</h1>
-            <p>{desc1stPara}</p>
-            {!desc2ndPara ? <></> : <p>{desc2ndPara}</p>}
+            {/* <p>{desc}</p> */}
+            {desc.map((descPart, index) => {
+              return <p key={index}>{descPart}</p>;
+            })}
             {!readmoreLink ? (
               <></>
             ) : (

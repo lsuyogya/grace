@@ -5,38 +5,48 @@ import HalfStar from './icons/HalfStar';
 import FullStar from './icons/FullStar';
 import EmptyStar from './icons/EmptyStar';
 
-const ClientTestimonials = () => {
+type testimonialObj = {
+  name: string;
+  date: string;
+  stars: number;
+  image: string;
+  reviews: string;
+};
+
+const ClientTestimonials = ({
+  title,
+  btnTxt,
+  btnLink,
+  testimonialList,
+}: {
+  title: string;
+  btnTxt: string;
+  btnLink: string;
+  testimonialList: testimonialObj[];
+}) => {
   return (
     <section className={`${style.container} mainGrid`}>
       <div className="content">
         <div
           className={`${style.top} flex gap-4 flex-wrap justify-between mb-6`}>
-          <h1>Our Client Testimonials</h1>
-          <Link href="/">
-            <button className="btnPrimary uppercase">
-              Review us on Google
-            </button>
+          <h1>{title}</h1>
+          <Link href={btnLink}>
+            <button className="btnPrimary uppercase">{btnTxt}</button>
           </Link>
         </div>
         <div className={style.testimonialGrid}>
-          <TestimonialCard
-            userName="John Doe"
-            date="2021/01/01"
-            rating={2.4}
-            review="Lorem ipsum dolor sit amet consectetur. Donec maecenas pulvinar consequat commodo. Sed consequat et elementum tempus id pharetra vestibulum cras. Integer vestibulum nunc nunc morbi eget. Cras tortor eu blandit vitae."
-          />
-          <TestimonialCard
-            userName="John Doe"
-            date="2021/01/01"
-            rating={4.1}
-            review="Lorem ipsum dolor sit amet consectetur. Donec maecenas pulvinar consequat commodo. Sed consequat et elementum tempus id pharetra vestibulum cras. Integer vestibulum nunc nunc morbi eget. Cras tortor eu blandit vitae."
-          />
-          <TestimonialCard
-            userName="John Doe"
-            date="2021/01/01"
-            rating={4.7}
-            review="Lorem ipsum dolor sit amet consectetur. Donec maecenas pulvinar consequat commodo. Sed consequat et elementum tempus id pharetra vestibulum cras. Integer vestibulum nunc nunc morbi eget. Cras tortor eu blandit vitae."
-          />
+          {testimonialList.map((testimonial, index) => {
+            return (
+              <TestimonialCard
+                key={index}
+                userName={testimonial.name}
+                date={testimonial.date}
+                rating={testimonial.stars}
+                review={testimonial.reviews}
+                imgSrc={testimonial.image}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

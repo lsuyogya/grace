@@ -1,5 +1,8 @@
+'use server';
+
 import style from '@/app/_styles/contactSection.module.scss';
 import Image from 'next/image';
+import { ContactForm } from './ContactForm';
 import Link from 'next/link';
 
 const ContactSection = ({
@@ -7,18 +10,20 @@ const ContactSection = ({
   email,
   address,
   purple = true,
+  title,
 }: {
   phone: string;
   email: string;
   address: string;
   purple?: boolean;
+  title: string;
 }) => {
   return (
     <section className={`${style.container} mainGrid`}>
       <div className="content">
         <div className={style.content}>
           <div className={`${style.left} grid`}>
-            <h1>Get in Touch</h1>
+            <h1>{title}</h1>
             <div className="grid gap-2 mt-6">
               <div className="flex gap-4">
                 <Image
@@ -89,54 +94,3 @@ const ContactSection = ({
 };
 
 export default ContactSection;
-
-const ContactForm = () => {
-  return (
-    <form
-      action=""
-      className={style.contactForm}>
-      <div className="formGroup">
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          placeholder="John Doe"
-          required
-        />
-      </div>
-      <div className="formGroup">
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="email@example.com"
-          required
-        />
-      </div>
-      <div className="formGroup">
-        <label htmlFor="contactNo">Contact Number</label>
-        <input
-          id="contactNo"
-          type="text"
-          pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
-          placeholder="9870000000"
-        />
-      </div>
-      <div className="formGroup">
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          placeholder="Your message to us."
-          rows={6}
-        />
-      </div>
-      <div className="formGroup">
-        <button
-          type="submit"
-          className="btnPrimary uppercase float-right">
-          Send Now
-        </button>
-      </div>
-    </form>
-  );
-};
