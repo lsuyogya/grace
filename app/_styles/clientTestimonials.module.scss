@@ -25,6 +25,11 @@
   border: 1px solid col.$dark;
   border-radius: 1em;
   padding: calc(24rem / 16);
+  @media (min-width: calc(768rem / 16)) {
+    &:only-child {
+      max-width: 33%;
+    }
+  }
   > * {
     margin-block: 1rem;
     &:first-child {
