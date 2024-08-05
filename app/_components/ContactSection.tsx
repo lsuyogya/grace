@@ -1,5 +1,6 @@
 import style from '@/app/_styles/contactSection.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ContactSection = ({
   phone,
@@ -26,7 +27,13 @@ const ContactSection = ({
                   height={48}
                   alt=""
                 />
-                <span className="content-center">{phone}</span>
+                <span className="content-center">
+                  <Link
+                    href={`tel:${phone}`}
+                    target="_blank">
+                    {phone}
+                  </Link>
+                </span>{' '}
               </div>
               <div className="flex gap-4">
                 <Image
@@ -35,7 +42,13 @@ const ContactSection = ({
                   height={48}
                   alt=""
                 />
-                <span className="content-center">{email}</span>
+                <span className="content-center">
+                  <Link
+                    target="_blank"
+                    href={`mailto:${email}`}>
+                    {email}
+                  </Link>
+                </span>
               </div>
               <div className="flex gap-4">
                 <Image
