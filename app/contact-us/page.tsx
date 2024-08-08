@@ -1,18 +1,26 @@
-import Banner from '../_components/Banner';
-import ContactSection from '../_components/ContactSection';
+import Banner from "../_components/Banner";
+import ContactSection from "../_components/ContactSection";
 
-const page = () => {
+async function getData() {
+  const res = await fetch(`${process.env.baseUrl}/about`, {
+    cache: "reload",
+  });
+  if (!res.ok) {
+    throw new Error("Fetch Failed");
+  }
+  return res.json();
+}
+
+const page = async () => {
+  const data = await getData();
   return (
     <>
-      <Banner
-        imgUrl="/banner3.jfif"
-        overlayTitle="Contact Us"
-      />
+      <Banner imgUrl={data.banner_image} overlayTitle={data.banner_title} />
       <ContactSection
-        title="Get in Touch"
-        phone="(505) 555-0125"
-        email="gracesupport@service.com"
-        address="3891 Ranchview Dr. Richardson, California 62639"
+        title={data.contact_title}
+        phone={data.phone}
+        email={data.email}
+        address={data.address}
         purple={false}
       />
     </>

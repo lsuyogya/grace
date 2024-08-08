@@ -24,7 +24,7 @@ async function getData() {
 export default async function Home() {
   const data = await getData();
   // const localhostReplacement = process.env.localhostIp;
-  // console.log(data);
+  console.log(data);
   // const replacelocalHost = (url: string) => {
   //   return url.replace('localhost', localhostReplacement as string);
   // };
