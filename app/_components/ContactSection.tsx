@@ -11,12 +11,14 @@ const ContactSection = ({
   address,
   purple = true,
   title,
+  mapSrc,
 }: {
   phone: string;
   email: string;
   address: string;
   purple?: boolean;
   title: string;
+  mapSrc: string;
 }) => {
   return (
     <section className={`${style.container} mainGrid`}>
@@ -66,7 +68,7 @@ const ContactSection = ({
               </div>
             </div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38736.76585061252!2d1.2452947346129912!3d52.6410482390156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d0aad55133f513%3A0x684ca5e00e12452f!2sNorwich%2C%20UK!5e0!3m2!1sen!2snp!4v1722316875911!5m2!1sen!2snp"
+              src={mapSrc}
               width="600"
               height="220"
               style={{ border: '0', marginBlockStart: '2rem' }}

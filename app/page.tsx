@@ -1,11 +1,11 @@
-"use server";
+'use server';
 
-import Banner from "./_components/Banner";
-import ImgTxt from "./_components/ImgTxt";
-import ListSection from "./_components/ListSection";
-import OurServices from "./_components/OurServices";
-import ClientTestimonials from "./_components/ClientTestimonials";
-import ContactSection from "./_components/ContactSection";
+import Banner from './_components/Banner';
+import ImgTxt from './_components/ImgTxt';
+import ListSection from './_components/ListSection';
+import OurServices from './_components/OurServices';
+import ClientTestimonials from './_components/ClientTestimonials';
+import ContactSection from './_components/ContactSection';
 
 // async function getData() {
 //   const res = await fetch(`${process.env.baseUrl}/homepage`);
@@ -15,7 +15,7 @@ async function getData() {
   // const res = await fetch(`${process.env.baseUrl}/mockHomepage`);
 
   if (!res.ok) {
-    throw new Error("Fetching Failed");
+    throw new Error('Fetching Failed');
   }
   const data = res.json();
   return data;
@@ -24,7 +24,7 @@ async function getData() {
 export default async function Home() {
   const data = await getData();
   // const localhostReplacement = process.env.localhostIp;
-  console.log(data);
+  // console.log(data);
   // const replacelocalHost = (url: string) => {
   //   return url.replace('localhost', localhostReplacement as string);
   // };
@@ -71,6 +71,7 @@ export default async function Home() {
         address={data.address}
         phone={data.phone}
         email={data.email}
+        mapSrc={data.map_url}
       />
     </>
   );
