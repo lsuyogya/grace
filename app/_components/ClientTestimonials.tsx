@@ -1,9 +1,9 @@
-import style from '@/app/_styles/clientTestimonials.module.scss';
-import Link from 'next/link';
-import Image from 'next/image';
-import HalfStar from './icons/HalfStar';
-import FullStar from './icons/FullStar';
-import EmptyStar from './icons/EmptyStar';
+import style from "@/app/_styles/clientTestimonials.module.scss";
+import Link from "next/link";
+import Image from "next/image";
+import HalfStar from "./icons/HalfStar";
+import FullStar from "./icons/FullStar";
+import EmptyStar from "./icons/EmptyStar";
 
 type testimonialObj = {
   name: string;
@@ -25,39 +25,41 @@ const ClientTestimonials = ({
   testimonialList: testimonialObj[];
 }) => {
   return (
-    <section className={`${style.container} mainGrid`}>
-      <div className="content">
-        <div
-          className={`${style.top} flex gap-4 flex-wrap justify-between mb-6`}>
-          <h1>{title}</h1>
-          <Link href={btnLink}>
-            <button className="btnPrimary uppercase">{btnTxt}</button>
-          </Link>
-        </div>
-        <div className={style.testimonialGrid}>
-          {testimonialList.map((testimonial, index) => {
-            return (
-              <TestimonialCard
-                key={index}
-                userName={testimonial.name}
-                date={testimonial.date}
-                rating={testimonial.stars}
-                review={testimonial.reviews}
-                imgSrc={testimonial.image}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </section>
+    <></>
+    // <section className={`${style.container} mainGrid`}>
+    //   <div className="content">
+    //     <div
+    //       className={`${style.top} flex gap-4 flex-wrap justify-between mb-6`}
+    //     >
+    //       <h1>{title}</h1>
+    //       <Link href={btnLink}>
+    //         <button className="btnPrimary uppercase">{btnTxt}</button>
+    //       </Link>
+    //     </div>
+    //     <div className={style.testimonialGrid}>
+    //       {testimonialList.map((testimonial, index) => {
+    //         return (
+    //           <TestimonialCard
+    //             key={index}
+    //             userName={testimonial.name}
+    //             date={testimonial.date}
+    //             rating={testimonial.stars}
+    //             review={testimonial.reviews}
+    //             imgSrc={testimonial.image}
+    //           />
+    //         );
+    //       })}
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 
 export default ClientTestimonials;
 
 const TestimonialCard = ({
-  imgSrc = '/AvatarDummy2.png',
-  imgAlt = '',
+  imgSrc = "/AvatarDummy2.png",
+  imgAlt = "",
   userName,
   date,
   rating,
@@ -81,7 +83,8 @@ const TestimonialCard = ({
   return (
     <div className={style.testimonialCard}>
       <div
-        className={`${style.cardHeader} flex gap-4 align-middle justify-between`}>
+        className={`${style.cardHeader} flex gap-4 align-middle justify-between`}
+      >
         <div className={`${style.headerContent} flex gap-4 align-middle`}>
           <Image
             src={imgSrc}
@@ -92,15 +95,10 @@ const TestimonialCard = ({
           />
           <div className={`${style.headerTxt} grid`}>
             <span>{userName}</span>
-            <small>{date ?? ''}</small>
+            <small>{date ?? ""}</small>
           </div>
         </div>
-        <Image
-          src={'/Google__G__logo.svg'}
-          alt=""
-          width={40}
-          height={40}
-        />
+        <Image src={"/Google__G__logo.svg"} alt="" width={40} height={40} />
       </div>
       <div className={style.rating}>
         {Array(fullIcons)
