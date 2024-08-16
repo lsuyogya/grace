@@ -1,10 +1,10 @@
-@use "./colors" as col;
-@use "./typography" as ty;
+@use './colors' as col;
+@use './typography' as ty;
 
 $breakpoint: 1000rem /16;
 $globalPaddingInline: 2rem;
 .container {
-  $formSectionIninePadding: clamp(calc(20rem / 16), 10vw, calc(80rem / 16));
+  $formSectionIninePadding: clamp(calc(20rem / 16), 4vw, calc(80rem / 16));
   margin-block-start: 4rem;
   .content {
     display: grid;
@@ -91,7 +91,7 @@ $globalPaddingInline: 2rem;
       position: absolute;
       inset: 0;
       transform: translateX(-#{$globalPaddingInline / 2});
-      content: "";
+      content: '';
       z-index: -1;
     }
     &::after {
@@ -99,7 +99,7 @@ $globalPaddingInline: 2rem;
       position: absolute;
       inset: 0;
       transform: translateX(#{$globalPaddingInline / 2});
-      content: "";
+      content: '';
       z-index: -1;
     }
     input,

@@ -28,6 +28,7 @@ export default async function Page() {
         title={data.about_title}
         desc={data.about_description}
         ndisIconSrc="/nids.png"
+        desktopCollapse
       />
       <ListSection
         imgSrc={data.why_grace_image}
@@ -42,10 +43,10 @@ export default async function Page() {
         btnTxt={data.testimonial_btn_text}
         testimonialList={data.testimonial_lists}
       />
-      <MiniServices
+      {/* <MiniServices
         serviceTitle={data.services_title}
         serviceList={data.services_lists}
-      />
+      /> */}
     </>
   );
 }

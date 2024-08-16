@@ -2,7 +2,7 @@ import Banner from '../_components/Banner';
 import ContactSection from '../_components/ContactSection';
 
 async function getData() {
-  const res = await fetch(`${process.env.baseUrl}/about`, {
+  const res = await fetch(`${process.env.baseUrl}/contact`, {
     cache: 'reload',
   });
   if (!res.ok) {
@@ -21,11 +21,14 @@ const page = async () => {
       />
       <ContactSection
         title={data.contact_title}
-        phone={data.phone}
-        email={data.email}
-        address={data.address}
         purple={false}
-        mapSrc={data.map_url}
+        phone1={data.phone_1}
+        phone2={data.phone_2}
+        email={data.email}
+        address1={data.address_1}
+        address2={data.address_2}
+        mapSrc1={data.map_url_1}
+        mapSrc2={data.map_url_2}
       />
     </>
   );

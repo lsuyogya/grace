@@ -9,7 +9,7 @@ const Codeilo = () => {
       fill="none"
       style={{
         filter:
-          'brightness(0) saturate(100%) invert(43%) sepia(56%) saturate(536%) hue-rotate(149deg) brightness(90%) contrast(89%);',
+          'brightness(0) saturate(100%) invert(43%) sepia(56%) saturate(536%) hue-rotate(149deg) brightness(90%) contrast(89%)',
       }}>
       <rect
         width="141"

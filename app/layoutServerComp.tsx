@@ -7,6 +7,11 @@ const getSocial = async () => {
   if (!res.ok) throw new Error('Fetch failed');
   return res.json();
 };
+const getFooter = async () => {
+  const res = await fetch(`${process.env.baseUrl}/footer`);
+  if (!res.ok) throw new Error('Fetch failed');
+  return res.json();
+};
 
 const LayoutServerComp = async ({
   children,
@@ -14,6 +19,7 @@ const LayoutServerComp = async ({
   children: React.ReactNode;
 }>) => {
   const social = await getSocial();
+  const footerData = await getFooter();
   const socialIcons = [
     // { link: `${social.x ?? "/"}`, iconPath: "/icons/x_logo.svg.svg" },
     // {
@@ -39,7 +45,11 @@ const LayoutServerComp = async ({
         id="main">
         {children}
       </main>
-      <Footer socialIcons={socialIcons} />
+      <Footer
+        socialIcons={socialIcons}
+        bannerImg={footerData.footer_image}
+        bannerTxt={footerData.footer_desc}
+      />
     </>
   );
 };

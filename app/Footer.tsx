@@ -7,8 +7,12 @@ import Codeilo from './_components/icons/Codeilo';
 
 const Footer = ({
   socialIcons,
+  bannerImg,
+  bannerTxt,
 }: {
   socialIcons: Array<{ link: string; iconPath: string }>;
+  bannerImg: string;
+  bannerTxt: string;
 }) => {
   type menuItem = { path: string; label: string };
   // const socialIcons = [
@@ -65,21 +69,12 @@ const Footer = ({
         </div> */}
         <div className={style.topSectionAlt}>
           <Image
-            src="/flag.png"
+            src={bannerImg}
             alt=""
             width={200}
             height={100}
           />
-          <p>
-            Grace Support Services acknowledges the Australian Aboriginal and
-            Torres Strait Islander peoples of this nation. We acknowledge the
-            traditional custodians of the lands on which our company is located
-            and where we conduct our business. We pay our respects to ancestors
-            and Elders, past, present and emerging. Grace Support Services is
-            committed to honouring Australian Aboriginal and Torres Strait
-            Islander peoples are unique cultural and spiritual relationships to
-            the land, waters and seas and their rich
-          </p>
+          <p>{bannerTxt}</p>
         </div>
         {/* <div className={`${style.middleSection}`}>
           <h3 className="text-lg">Connect with us</h3>
