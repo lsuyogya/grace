@@ -1,5 +1,5 @@
 'use server';
-
+import { SubmitButton } from '../_components/SubmitButton';
 import style from '@/app/_styles/referrals.module.scss';
 
 const Page = () => {
@@ -151,9 +151,9 @@ const Page = () => {
           </label>
         </div>
 
-        <input
-          type="submit"
-          value="Submit"
+        <SubmitButton
+          btnLabel="Submit"
+          className="btnPrimary uppercase ml-auto w-full mb-8 mt-4"
         />
       </form>
     </div>
