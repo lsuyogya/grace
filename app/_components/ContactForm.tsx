@@ -42,7 +42,7 @@ export const ContactForm = () => {
           name="contactNo"
           type="text"
           pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
-          placeholder="9870000000"
+          placeholder="04XXXXXXXX"
           required
         />
       </div>

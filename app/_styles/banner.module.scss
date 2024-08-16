@@ -49,7 +49,8 @@ $breakpoint: 800rem /16;
 
 .enquireBtn {
   $border-rad: calc(8rem / 16);
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   background-color: col.$highlight;
   inset-inline-end: 0rem;
   inset-block: 0;

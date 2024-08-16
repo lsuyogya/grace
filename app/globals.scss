@@ -162,3 +162,11 @@ form p.formMsg {
     color: col.$error;
   }
 }
+
+.body {
+  grid-template-rows: auto 1fr auto;
+}
+
+.privacyPolicy:any-link {
+  color: col.$error;
+}
