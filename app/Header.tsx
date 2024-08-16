@@ -21,7 +21,7 @@ const Header = ({
     { path: '/', label: 'Home' },
     { path: '/services', label: 'Services' },
     { path: '/about-us', label: 'About Us' },
-    { path: '/referral', label: 'Referral' },
+    { path: '/referrals', label: 'Referral' },
     { path: '/contact-us', label: 'Contact Us' },
   ];
   const mobileMenu = useRef<HTMLDivElement>(null);

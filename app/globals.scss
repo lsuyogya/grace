@@ -177,5 +177,13 @@ body.mainGrid {
 }
 
 .privacyPolicy:any-link {
-  color: col.$error;
+  color: inherit;
+  cursor: pointer;
+}
+.craftedBy {
+  font-size: 0.75rem;
+  svg {
+    height: 1rem;
+    width: auto;
+  }
 }

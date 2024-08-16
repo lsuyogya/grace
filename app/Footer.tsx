@@ -109,7 +109,7 @@ const Footer = ({
               | Privacy Policy
             </Link>
           </p>
-          <p className="flex place-items-center gap-2">
+          <p className="flex place-items-center gap-2 craftedBy">
             Crafted by: <Codeilo />
           </p>
         </div>

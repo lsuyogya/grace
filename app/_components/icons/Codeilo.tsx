@@ -2,38 +2,56 @@ const Codeilo = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="141"
-      height="36"
-      viewBox="0 0 141 36"
-      fill="none"
-      style={{
-        filter:
-          'brightness(0) saturate(100%) invert(43%) sepia(56%) saturate(536%) hue-rotate(149deg) brightness(90%) contrast(89%)',
-      }}>
-      <rect
-        width="141"
-        height="36"
-        fill="url(#pattern0_122_18)"
+      width="159"
+      height="27"
+      viewBox="0 0 159 27"
+      fill="none">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M111 0.2C111 0.0895431 110.91 0 110.8 0H104.2C104.09 0 104 0.0895429 104 0.2V15.8C104 15.9105 104.09 16 104.2 16H110.8C110.91 16 111 15.9105 111 15.8V0.2ZM111 21.2C111 21.0895 110.91 21 110.8 21H104.2C104.09 21 104 21.0895 104 21.2V26.8C104 26.9105 104.09 27 104.2 27H110.8C110.91 27 111 26.9105 111 26.8V21.2Z"
+        fill="#7D8EA5"
       />
-      <defs>
-        <pattern
-          id="pattern0_122_18"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1">
-          <use
-            xlinkHref="#image0_122_18"
-            transform="matrix(0.00628931 0 0 0.0246331 0 0.167453)"
-          />
-        </pattern>
-        <image
-          id="image0_122_18"
-          width="159"
-          height="27"
-          xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAbCAYAAABiOl0uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQjSURBVHgB3ZvvkdMwEMX3qCAluIR0QKiA68CmAtKB3QF04KOCo4PMVZDrwEcFoYOHRJQbI/RndyXbB78Zfcix+1bSPkdOYogUABjBYzKjSejszDg6PRt7meWezXg0o0tpCObceHPrXW0uraCWCqlWSawWrNizUPERPC6xCbgF9Phz4jnGkgUhbLTejAF8WAaEEqlWSawUbNAzfwIjs6id4D6i8RmyBcyZzOhIAa5XZYgelQ0IJVKtkljh3m3Ss/kERmaxlPF61KEnAfj7yJ1zdjHVDAglUq2SWMHe9aiDqGfzCYzMAmsYT7wYpO/tjrO4B/BpE/VUSLVKYpn71qMuMgOCbzzLIaLRYRmOzDWcExqNF1tsQCiRapXEMvZs055JjddFNOyRN2VyRzMOZuxczs69zhnhcstJrCF75AZyigwYCyQFqcIlsZmam/asivEYOhMix7RgI4ZMPuvIDeSpDRgLIgWpoiWxmZpjQmrCkj1DPeM1mUU0xNuM1GKSVxIER24g9wQ+7SwvCClIFSyJTdTbrmeQGe+YmUCXyG1IgInfS+cBxZHr5duj5Aw+rcsLQgoStZYy3zY9g8x4A6P4YyR3JAWIH4VjJF515HoaYgPG5kkKUoVKYhP11u+ZefEFfAZm4VjTDqQA1xvaEJOwvqUhJpAb0M7zBCGR2ux4qbZwzw6kALmeIX08+QyCwjF2pABXE4S4BGKLjtxI7Qk8TohvepRIXXa8VFtYr3rP3rmYPVPr693d3UCFGI2fpCCRF9qYe4rzjXS1PzDDGzNe6D9iiZ7dzMcVvofspjOoW3IVCcJTP4F9Jx0fmXF23ao1vgFW69nNfM/EM2BjxklgwJgm952Wm/c8f+HmF401V+MLCcH1k+xXZviTGe/p32S1nv02n3tr/EQ8GuIb8Cnyd/azccy8H97rqkeuM94DM9xeCPaddfD/4S5DSEwaX4FtegbZ73kT8l/Spr7qEF1JSH+A6LzYKp9ynVYLPrauvcEOPn5EC5OamEBjk57dEqoZEIlGoN635ZjroOKnXCiM5/KC0MKkJifQWL1nfmJNAw7aXJe/R3oRoxdf/MWy02nB59V4LjcILUxqgkKdVXsWEqhiQKSvpNfJIPyExCitiwpHLgqM5/KD0MKgAE9n1Z7FFlPLgJL/qCOh8+oUH7koNJ7TUBGZDzseBdBGPcs1o5YBB9RlEG5Y9shFBeM5HRVSrVp1E7UX71kWvD0DDhH9ksenWvCJGs9pqZBq1aobq71Gz1igngE78H8j9bH3IdUfn0JF4zk9FVKtWnVjtWnhnolAPQNaozwItOwC7BWYerfRPrHcgk/WeE5ThVSrVt1YbU+7es/EQG7AXWZBVs8+Q3b2Jm5zR1xNxWm4+Mg1f78HnxOYGwklUq1adWO1I/Op1rNfDOgdugZxnj8AAAAASUVORK5CYII="
-        />
-      </defs>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M122 0.2C122 0.089543 121.91 0 121.8 0H115.2C115.09 0 115 0.0895436 115 0.200001V26.8C115 26.9105 115.09 27 115.2 27H121H122H129.8C129.91 27 130 26.9105 130 26.8V20.2C130 20.0895 129.91 20 129.8 20H122.2C122.09 20 122 19.9105 122 19.8V0.2Z"
+        fill="#7D8EA5"
+      />
+      <path
+        d="M63.4726 0C63.2959 0 63.206 0.212395 63.329 0.339243L75.6907 13.0847C76.0711 13.4769 76.0663 14.1017 75.68 14.488L63.5095 26.6586C63.3835 26.7846 63.4727 27 63.6509 27H73.9607C74.2259 27 74.4803 26.8946 74.6678 26.7071L84.7548 16.6201C86.3169 15.058 86.3169 12.5253 84.7548 10.9632L74.0845 0.292893C73.897 0.105357 73.6426 0 73.3774 0H63.4726Z"
+        fill="#215FAC"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M59.1442 0C59.0581 0 58.9816 0.0550856 58.9544 0.136754L50.0877 26.7368C50.0446 26.8663 50.141 27 50.2775 27H56.8558C56.9419 27 57.0184 26.9449 57.0456 26.8632L64.9769 3.06931L62 0H59.1442Z"
+        fill="#215FAC"
+      />
+      <path
+        d="M24.1107 0C24.2874 0 24.3773 0.212395 24.2542 0.339243L11.344 13.6502C11.2679 13.7287 11.2689 13.8536 11.3461 13.9309L24.0738 26.6586C24.1998 26.7846 24.1106 27 23.9324 27H13.2912C13.2381 27 13.1873 26.9789 13.1498 26.9414L2.82841 16.6201C1.26631 15.058 1.26631 12.5253 2.82841 10.9632L13.733 0.0585786C13.7705 0.0210714 13.8214 0 13.8745 0H24.1107Z"
+        fill="#215FAC"
+      />
+      <circle
+        cx="36.5"
+        cy="13.5"
+        r="10.5"
+        stroke="#215FAC"
+        stroke-width="6"
+      />
+      <circle
+        cx="145.5"
+        cy="13.5"
+        r="10.5"
+        stroke="#7D8EA5"
+        stroke-width="6"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M85 17.3749L85.7548 16.6201C87.3169 15.058 87.3169 12.5253 85.7548 10.9632L85 10.2084V0.2C85 0.0895431 85.0895 0 85.2 0H98.8C98.9105 0 99 0.0895429 99 0.2V5.8C99 5.91046 98.9105 6 98.8 6H91.2C91.0895 6 91 6.08954 91 6.2V10.8C91 10.9105 91.0895 11 91.2 11H98.8C98.9105 11 99 11.0895 99 11.2V15.8C99 15.9105 98.9105 16 98.8 16H91.2C91.0895 16 91 16.0895 91 16.2V20.8C91 20.9105 91.0895 21 91.2 21H98.8C98.9105 21 99 21.0895 99 21.2V26.8C99 26.9105 98.9105 27 98.8 27H85.2C85.0895 27 85 26.9105 85 26.8V17.3749Z"
+        fill="#215FAC"
+      />
     </svg>
   );
 };
