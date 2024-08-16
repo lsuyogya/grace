@@ -11,6 +11,7 @@ const ImgTxt = ({
   readmoreLink,
   ndisIconSrc,
   ndisIconAlt,
+  desktopCollapse = false,
 }: {
   imgSrc: string;
   imgAlt?: string;
@@ -19,11 +20,15 @@ const ImgTxt = ({
   readmoreLink?: string;
   ndisIconSrc: string;
   ndisIconAlt?: string;
+  desktopCollapse?: boolean;
 }) => {
   return (
     <section className="mainGrid">
       <div className="content">
-        <div className={`${style.imgTxt}`}>
+        <div
+          className={`${style.imgTxt} ${
+            desktopCollapse ? style.desktopCollapse : ''
+          }`}>
           <Image
             src={imgSrc}
             height={1000}

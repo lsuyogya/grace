@@ -57,12 +57,12 @@ const ContactSection = ({
                 />
                 <span className="grid content-center">
                   <Link
-                    href={`tel:${phone1}`}
+                    href={`tel:${phone1.replace(/\s*\(.*?\)/, '').trim()}`}
                     target="_blank">
                     {phone1}
                   </Link>
                   <Link
-                    href={`tel:${phone2}`}
+                    href={`tel:${phone2.replace(/\s*\(.*?\)/, '').trim()}`}
                     target="_blank">
                     {phone2}
                   </Link>

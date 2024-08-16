@@ -7,6 +7,9 @@ $breakpoint: 1000rem / 16;
   grid-template-columns: 1fr 1fr;
   position: relative;
   row-gap: 2rem;
+  &.desktopCollapse {
+    grid-template-columns: 1fr;
+  }
   @media (max-width: $breakpoint) {
     grid-template-columns: 1fr;
   }
@@ -55,4 +58,8 @@ $breakpoint: 1000rem / 16;
     inset-inline-end: 0;
     float: right;
   }
+}
+.desktopCollapse .ndisLogo {
+  position: relative;
+  margin-inline-start: auto;
 }
