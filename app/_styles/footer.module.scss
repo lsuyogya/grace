@@ -19,6 +19,16 @@ $breakpoint: 1000rem / 16;
   }
 }
 
+.topSectionAlt {
+  display: grid;
+  grid-auto-flow: column;
+  font-size: 0.85rem;
+  gap: 1rem;
+  @media (max-width: $breakpoint) {
+    grid-auto-flow: row;
+    font-size: 0.75rem;
+  }
+}
 .topSection {
   @media (max-width: $breakpoint) {
     flex-direction: column;

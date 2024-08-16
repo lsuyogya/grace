@@ -11,7 +11,7 @@
 }
 .cardContainer {
   $globalPaddingInlineValue: 2rem;
-  $minValue: (400rem / 16);
+  $minValue: (300rem / 16);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($minValue, 1fr));
   @media (max-width: #{$minValue + $globalPaddingInlineValue}) {
