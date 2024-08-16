@@ -66,13 +66,6 @@ export default async function Home() {
         btnTxt={data.testimonial_btn_text}
         testimonialList={data.testimonial_lists}
       />
-      <ContactSection
-        title={data.contact_title}
-        address={data.address}
-        phone={data.phone}
-        email={data.email}
-        mapSrc={data.map_url}
-      />
     </>
   );
 }

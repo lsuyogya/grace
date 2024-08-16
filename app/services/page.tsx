@@ -28,10 +28,13 @@ const Services = async () => {
       />
       <ContactSection
         title={data.contact_title}
-        phone={data.phone}
+        phone1={data.phone_1}
+        phone2={data.phone_2}
         email={data.email}
-        address={data.address}
-        mapSrc={data.map_url}
+        address1={data.address_1}
+        address2={data.address_2}
+        mapSrc1={data.map_url_1}
+        mapSrc2={data.map_url_2}
       />
     </>
   );

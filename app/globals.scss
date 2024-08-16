@@ -114,6 +114,15 @@ header {
 header.header-shadow {
   box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
 }
+img[alt*='Grace'] {
+  transition: width 300ms, padding 300ms;
+}
+header.header-shadow img[alt*='Grace'] {
+  width: 130px;
+  padding-block: calc(
+    (78.16px - 67.73px) / 2
+  ); //max-height of img - min height of img, half of it for block start and end
+}
 
 nav {
   a {
@@ -163,7 +172,7 @@ form p.formMsg {
   }
 }
 
-.body {
+body.mainGrid {
   grid-template-rows: auto 1fr auto;
 }
 
